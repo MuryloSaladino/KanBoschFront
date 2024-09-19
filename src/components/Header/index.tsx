@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Header() {
     return(
-        <Box position="fixed">
-            
+        <Box position="fixed" p={'10px'} bgcolor={'white'} width={'100vw'}>
+            <Typography variant="h4">KanBom</Typography>
         </Box>
     )
 }
