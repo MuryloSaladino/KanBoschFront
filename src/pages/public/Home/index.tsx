@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
         <PageEnveloper noHeader={false}>
-            <Typography variant="h2">Home</Typography>
+            <Typography variant="h2" sx={{marginTop: "5vh"}}>Home</Typography>
         </PageEnveloper>
     )
 }
