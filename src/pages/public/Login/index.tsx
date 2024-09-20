@@ -11,11 +11,8 @@ export default function Login() {
                     bgcolor={"gray"} 
                     height={'100vh'} 
                     width={'50vw'}
-                    sx=
-                    {{
-                        overflow: 'hidden'
-                    }}
-                >
+                    sx={{ overflow: 'hidden' 
+                }}>
                     <img src="/light_bg.png"/>
                 </Box>
                 <Box 
