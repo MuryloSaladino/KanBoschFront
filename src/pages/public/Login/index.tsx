@@ -1,6 +1,7 @@
 import { Box, ThemeProvider, Typography } from "@mui/material";
 import appTheme from "../../../styles/theme";
 import LoginForm from "./components/LoginForm";
+import { Link } from "react-router-dom";
 
 export default function Login() {
 
@@ -30,6 +31,7 @@ export default function Login() {
                         Login
                     </Typography>
                     <LoginForm/>
+                    <Link to={"/register"} style={{color: "white"}}>Not registered? Sign in</Link>
                 </Box>
             </Box>
         </ThemeProvider>

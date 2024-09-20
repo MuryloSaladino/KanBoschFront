@@ -1,7 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Button, FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function LoginForm() 
 {
@@ -71,7 +70,6 @@ export default function LoginForm()
                 </FormControl>
                 <Button color="warning" variant="contained" sx={{margin: "20px"}}>Login</Button>
             </form>
-            <Link to={"/register"} style={{color: "white"}}>Not registered? Sign in</Link>
         </>
     )
 }

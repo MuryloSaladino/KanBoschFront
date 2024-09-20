@@ -1,7 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Button, FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function RegisterForm() {
     const [showPwd, setShowPwd] = useState(false);
@@ -135,7 +134,7 @@ export default function RegisterForm() {
                 </FormControl>
                 <Button color="warning" variant="contained" sx={{ margin: "20px" }}>Register</Button>
             </form>
-            <Link to={"/login"} style={{color: "white"}}>Already registered? Login</Link>
+            
         </>
     )
 }
