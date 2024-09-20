@@ -11,130 +11,126 @@ export default function RegisterForm() {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}
-                style={
+        <form onSubmit={handleSubmit}
+            style={
+                {
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginTop: "50px"
+                }
+            }>
+            <TextField
+                id="filled-basic"
+                label="First Name"
+                variant="filled"
+                color="warning"
+                sx={{ m: 1, width: '100%' }}
+                required
+            />
+            <TextField
+                id="filled-basic"
+                label="Last Name"
+                variant="filled"
+                color="warning"
+                sx={{ m: 1, width: '100%' }}
+                required
+            />
+            <TextField
+                id="filled-basic"
+                label="Birth Date"
+                variant="filled"
+                color="warning"
+                sx={{ m: 1, width: '100%' }}
+                slotProps={{
+                    inputLabel: {
+                        shrink: true,
+                    },
+                }}
+                required
+                type="date"
+            />
+            <TextField
+                id="filled-basic"
+                label="Email"
+                variant="filled"
+                color="warning"
+                sx={{ m: 1, width: '100%' }}
+                required
+                type="email"
+            />
+            <FormControl
+                sx={{ m: 1, width: '100%' }}
+                variant="filled"
+                color="warning"
+                required
+            >
+                <InputLabel htmlFor="filled-adornment-password">
+                    Password
+                </InputLabel>
+                <FilledInput
+                    id="filled-adornment-password"
+                    color="warning"
+                    type=
                     {
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "50vh",
-                        alignItems: "center",
-                        marginTop: "50px"
+                        showPwd
+                            ? "text"
+                            : "password"
                     }
-                }>
-                <TextField
-                    id="filled-basic"
-                    label="First Name"
-                    variant="filled"
-                    color="warning"
-                    sx={{ m: 1, width: '80%' }}
-                    required
-                />
-                <TextField
-                    id="filled-basic"
-                    label="Last Name"
-                    variant="filled"
-                    color="warning"
-                    sx={{ m: 1, width: '80%' }}
-                    required
-                />
-                <TextField
-                    id="filled-basic"
-                    label="Birth Date"
-                    variant="filled"
-                    color="warning"
-                    sx={{ m: 1, width: '80%' }}
-                    slotProps={{
-                        inputLabel: {
-                            shrink: true,
-                        },
-                    }}
-                    required
-                    type="date"
-                />
-                <TextField
-                    id="filled-basic"
-                    label="Email"
-                    variant="filled"
-                    color="warning"
-                    sx={{ m: 1, width: '80%' }}
-                    required
-                    type="email"
-                />
-                <FormControl
-                    sx={{ m: 1, width: '80%' }}
-                    variant="filled"
-                    color="warning"
-                    required
-                >
-                    <InputLabel htmlFor="filled-adornment-password">
-                        Password
-                    </InputLabel>
-                    <FilledInput
-                        id="filled-adornment-password"
-                        color="warning"
-                        type=
-                        {
-                            showPwd
-                                ? "text"
-                                : "password"
-                        }
-                        endAdornment=
-                        {
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleShowPwd}
-                                    edge="end">
-                                    {
-                                        showPwd
-                                            ? <VisibilityOff />
-                                            : <Visibility />
-                                    }
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                    ></FilledInput>
-                </FormControl>
-                <FormControl
-                    sx={{ m: 1, width: '80%' }}
-                    variant="filled"
-                    color="warning"
-                    required
+                    endAdornment=
+                    {
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleShowPwd}
+                                edge="end">
+                                {
+                                    showPwd
+                                        ? <VisibilityOff />
+                                        : <Visibility />
+                                }
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                ></FilledInput>
+            </FormControl>
+            <FormControl
+                sx={{ m: 1, width: '100%' }}
+                variant="filled"
+                color="warning"
+                required
 
-                >
-                    <InputLabel htmlFor="filled-adornment-password">
-                        Confirm Password
-                    </InputLabel>
-                    <FilledInput
-                        id="filled-adornment-password"
-                        color="warning"
-                        type=
-                        {
-                            showPwd
-                                ? "text"
-                                : "password"
-                        }
-                        endAdornment=
-                        {
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleShowPwd}
-                                    edge="end">
-                                    {
-                                        showPwd
-                                            ? <VisibilityOff />
-                                            : <Visibility />
-                                    }
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                    ></FilledInput>
-                </FormControl>
-                <Button color="warning" variant="contained" sx={{ margin: "20px" }}>Register</Button>
-            </form>
-            
-        </>
+            >
+                <InputLabel htmlFor="filled-adornment-password">
+                    Confirm Password
+                </InputLabel>
+                <FilledInput
+                    id="filled-adornment-password"
+                    color="warning"
+                    type=
+                    {
+                        showPwd
+                            ? "text"
+                            : "password"
+                    }
+                    endAdornment=
+                    {
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleShowPwd}
+                                edge="end">
+                                {
+                                    showPwd
+                                        ? <VisibilityOff />
+                                        : <Visibility />
+                                }
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                ></FilledInput>
+            </FormControl>
+            <Button color="warning" variant="contained" sx={{ margin: "20px" }}>Register</Button>
+        </form>
     )
 }

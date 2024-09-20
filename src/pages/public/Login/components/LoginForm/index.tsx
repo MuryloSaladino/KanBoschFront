@@ -18,7 +18,6 @@ export default function LoginForm()
                     {
                         display: "flex", 
                         flexDirection: "column", 
-                        width: "50vh",
                         alignItems: "center",
                         marginTop: "50px"
                     }
@@ -28,11 +27,11 @@ export default function LoginForm()
                     label="Email" 
                     variant="filled" 
                     color="warning"
-                    sx={{ m: 1, width: '80%'}} 
+                    sx={{ m: 1, width: '100%'}} 
                     required
                 />
                 <FormControl 
-                    sx={{ m: 1, width: '80%'}} 
+                    sx={{ m: 1, width: '100%'}} 
                     variant="filled" 
                     color="warning"
                     required
