@@ -17,7 +17,7 @@ export default function Login() {
                     <img src="/light_bg.png"/>
                 </Box>
                 <Box 
-                    bgcolor={"#41BBD9"} 
+                    bgcolor={"#0D3044"} 
                     height={'100vh'} 
                     minWidth={'50vw'} 
                     textAlign={"center"} 
