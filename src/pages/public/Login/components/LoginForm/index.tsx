@@ -1,30 +1,47 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Box, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
+import { Button, FilledInput, FormControl, IconButton, InputAdornment, InputLabel, TextField } from "@mui/material";
 import { useState } from "react";
 
 export default function LoginForm() 
 {
-
     const [ showPwd, setShowPwd ] = useState(false);
-
     const handleShowPwd = () => setShowPwd((show) => !show);
 
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+    }
 
     return (
-        <Box 
-            alignItems={"center"} 
-            bgcolor={"white"} 
-            flexDirection={"column"}
-            margin={"50px"}
-            padding={"20px"}
+        <form onSubmit={handleSubmit} 
+            style={
+                {
+                    display: "flex", 
+                    flexDirection: "column", 
+                    width: "50vh",
+                    alignItems: "center"
+                }
+            }>
+            <TextField 
+                id="filled-basic" 
+                label="Email" 
+                variant="filled" 
+                color="warning"
+                sx={{ m: 1, width: '80%'}} 
+                required
+            />
+            <FormControl 
+                sx={{ m: 1, width: '80%'}} 
+                variant="filled" 
+                color="warning"
+                required
+                
             >
-            <TextField id="outlined-basic" label="Email" variant="outlined" sx={{ m: 1, width: '50vh' }}/>
-            <FormControl sx={{ m: 1, width: '50vh' }} variant="outlined" margin="normal">
-                <InputLabel htmlFor="outlined-adornment-password">
+                <InputLabel htmlFor="filled-adornment-password">
                     Password
                 </InputLabel>
-                <OutlinedInput
-                    id="outlined-adornment-password"
+                <FilledInput
+                    id="filled-adornment-password"
+                    color="warning"
                     type=
                     {
                         showPwd 
@@ -37,17 +54,19 @@ export default function LoginForm()
                             <IconButton
                                 aria-label="toggle password visibility"
                                 onClick={handleShowPwd}
-                                edge="end">
-                                    {
-                                        showPwd 
-                                        ? <VisibilityOff /> 
-                                        : <Visibility />
-                                    }
+                                edge="end"
+                            >
+                                {
+                                    showPwd 
+                                    ? <VisibilityOff /> 
+                                    : <Visibility />
+                                }
                             </IconButton>
                         </InputAdornment>
                     }
-                ></OutlinedInput>
+                ></FilledInput>
             </FormControl>
-        </Box>
+            <Button color="warning" variant="contained" sx={{margin: "20px"}}>Entrar</Button>
+        </form>
     )
 }

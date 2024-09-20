@@ -10,7 +10,7 @@ export default function Login() {
                 <Box 
                     bgcolor={"gray"} 
                     height={'100vh'} 
-                    width={'50vw'} 
+                    width={'50vw'}
                     sx=
                     {{
                         overflow: 'hidden'
@@ -19,14 +19,15 @@ export default function Login() {
                     <img src="/light_bg.png"/>
                 </Box>
                 <Box 
-                    bgcolor={"#006E90"} 
+                    bgcolor={"#41BBD9"} 
                     height={'100vh'} 
-                    width={'50vw'} 
+                    minWidth={'50vw'} 
                     textAlign={"center"} 
-                    p={'50px'}
+                    p={'20px'}
                     display={'flex'}
                     flexDirection={'column'}
                     alignItems={"center"}
+                    justifyContent={"center"}
                 >                  
                     <Typography variant="h2" color="white">
                         Login
@@ -34,7 +35,6 @@ export default function Login() {
                     <LoginForm/>
                 </Box>
             </Box>
-
         </ThemeProvider>
     )
 }
