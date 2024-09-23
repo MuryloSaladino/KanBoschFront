@@ -1,35 +1,30 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    return(
-        <Box 
-            position="fixed" 
-            p={'15px'} 
-            bgcolor={'white'} 
-            width={'100vw'} 
-            justifyContent={"space-between"} 
-            display={"flex"} 
+    return (
+        <Box
+            position="fixed"
+            p={'15px'}
+            bgcolor={'#0D3044'}
+            width={'100vw'}
+            justifyContent={"space-between"}
+            display={"flex"}
             flexDirection={"row"}
             alignItems={"center"}
         >
-            <Typography variant="h5">KanBom</Typography>
-            <Button color="warning">
-                <Link to={'/newProject'} style={{textDecoration: "none", color: "orange"}}>
+            <Typography variant="h5" color="white">KanBom</Typography>
+            <Button color="success">
+                <Link to={'/newProject'} style={{ textDecoration: "none", color: "#B9E170", fontWeight: "bold" }}>
                     New Project
                 </Link>
             </Button>
-            <Button color="warning">
-                <Link to={'/myTeam'} style={{textDecoration: "none", color: "orange"}}>
+            <Button color="success">
+                <Link to={'/teams'} style={{ textDecoration: "none", color: "#B9E170", fontWeight: "bold" }}>
                     My Teams
                 </Link>
             </Button>
-            <Box bgcolor={"skyblue"} 
-                width={"50px"} 
-                height={"50px"} 
-                borderRadius={"50px"}
-                sx={{ cursor: "pointer"}} 
-            />
+            <Avatar sx={{ bgcolor: "#F18F01", cursor: "pointer" }}>IJ</Avatar>
         </Box>
     )
 }
