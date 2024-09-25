@@ -6,17 +6,21 @@ import mainRouter from "./routes";
 
 import "./styles/reset.css"
 import "./styles/global.css"
+import "./styles/animations.css"
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from "@emotion/react";
 import appTheme from "./styles/theme";
+import { UserProvider } from "./providers/UserProvider";
 
 export default function App() {
 
     return(
         <ThemeProvider theme={appTheme}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <RouterProvider router={mainRouter}/>
-            </LocalizationProvider>
+            <UserProvider>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <RouterProvider router={mainRouter}/>
+                </LocalizationProvider>
+            </UserProvider>
             <ToastContainer
                 position='top-center'
             />

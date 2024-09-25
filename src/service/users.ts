@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 import API from "./API"
 import { TUser, TUserCreation } from "../types/user.types.";
 
-export const getUser = async (token:string): Promise<TUser | null> => {
+export const getUser = async (token:string): Promise<TUser | undefined> => {
     try {
         return await API.get(
             "/users", 
@@ -14,7 +14,7 @@ export const getUser = async (token:string): Promise<TUser | null> => {
             toast.error(err.response?.data.message);
         }
     }
-    return null;
+    return;
 }
 
 export const registerService = async (payload:TUserCreation) => {
