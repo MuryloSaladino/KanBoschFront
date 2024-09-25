@@ -24,7 +24,7 @@ const mainRouter = createBrowserRouter([
         element: <Register/>
     },
     {
-        path: "home",
+        path: "/",
         element: <Home/>
     },
     {
