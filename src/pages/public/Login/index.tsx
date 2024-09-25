@@ -1,23 +1,20 @@
 import { Box, Button, Container, Stack, TextField, ThemeProvider, Typography } from "@mui/material";
 import appTheme from "../../../styles/theme";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../providers/UserProvider";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import LogoTitle from "../../../components/LogoTitle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
 
     const { login } = useContext(UserContext);
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
 
     const submit:SubmitHandler<FieldValues> = async (data) => {
-        await login(data.email, data.password);
+        await login(data.email, data.password, () => navigate("/dashboard"));
     }
-
-    useEffect(() => {
-        localStorage.removeItem("@TOKEN")
-    }, [])
 
     return (
         <ThemeProvider theme={appTheme}>

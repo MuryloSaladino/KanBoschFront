@@ -1,14 +1,13 @@
 import { AxiosError } from "axios"
-import { toast } from "react-toastify"
 import API from "./API"
 import { TUser } from "../types/user.types.";
 
-export const loginService = async (email:string, password:string):Promise<{token:string, user:TUser} | null> => {
+export const loginService = async (email:string, password:string, onError?:(err:AxiosError) => void):Promise<{token:string, user:TUser} | null> => {
     try {
-        return await API.post("/login", { email, password });
+        return (await API.post("/login", { email, password })).data;
     } catch (err) {
-        if(err instanceof AxiosError)
-            toast.error(err.response?.data.message)
+        if(err instanceof AxiosError && onError)
+            onError(err)
     }
     return null;
 }

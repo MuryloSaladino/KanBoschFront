@@ -5,7 +5,7 @@ import { getUser } from "../service/users";
 
 interface IUserProvider {
     user?: TUser;
-    login: (email:string, password:string) => Promise<void>;
+    login: (email:string, password:string, redirect?:() => void) => Promise<void>;
     logout: () => void;
     loadingUser: boolean;
 }
@@ -17,12 +17,13 @@ export function UserProvider({ children }: { children?: ReactNode }) {
     const [user, setUser] = useState<TUser>();
     const [loadingUser, setLoadingUser] = useState(false);
     
-    const login = async (email:string, password:string) => {
+    const login = async (email:string, password:string, redirect?:() => void) => {
         setLoadingUser(true);
         const response = await loginService(email, password);
         if(response) {
             localStorage.setItem("@TOKEN", response.token);
             setUser(response.user);
+            if(redirect) redirect()
         }
         setLoadingUser(false);
     }
