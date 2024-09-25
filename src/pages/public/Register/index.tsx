@@ -8,7 +8,8 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Register() {
 
@@ -38,6 +39,7 @@ export default function Register() {
             <Container maxWidth="xs">
                 <Box 
                     flexDirection="column"
+                    position="relative"
                     borderRadius={2}
                     display="flex" 
                     boxShadow={3} 
@@ -45,6 +47,10 @@ export default function Register() {
                     gap={7} 
                     p={5}
                 >
+                    <Box position="absolute" top={30} left={30}>
+                        <Link to="/login"><ArrowBackIcon/></Link>
+                    </Box>
+
                     <LogoTitle/>
                     
                     <Stack
