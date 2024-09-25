@@ -1,7 +1,8 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TUser } from "../types/user.types.";
-import useLoading from "../hooks/loading";
+import { loginService } from "../service/login";
+import { getUser } from "../service/users";
 
 interface IUserProvider {
     user: TUser | null;
@@ -14,30 +15,38 @@ export const UserContext = createContext({} as IUserProvider)
 
 export function UserProvider({ children }: { children?: ReactNode }) {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [user, setUser] = useState<TUser | null>(null);
+    const [loadingUser, setLoadingUser] = useState(false);
+    
+    const login = async (email:string, password:string) => {
+        setLoadingUser(true);
+        const response = await loginService(email, password);
+        if(!response) return;
 
-    const [user, setUser] = useState<TUser | null>(null)
-    const {} = useLoading(login)
+        setUser(response.user);
+        localStorage.setItem("@TOKEN", response.token);
+        navigate("/dashboard");
+        setLoadingUser(false);
+    }
+
+    const autoLogin = useCallback(async () => {
+        setLoadingUser(true);
+        const token = localStorage.getItem("@TOKEN");
+        if(!token) return;
+    
+        setUser(await getUser(token));
+        setLoadingUser(false);
+    }, [])
 
     const logout = () => {
-        setUser(null)
-        navigate("/login")
+        setUser(null);
+        localStorage.removeItem("@TOKEN");
+        navigate("/login");
     }
 
-    const login = async (email:string, password: string) => {
-
-    }
-
-    // teste de auto login
     useEffect(() => {
-        setLoadingUser(true)
-
-        const id = setTimeout(() => {
-            setUser({ email: "user@mail.com", fullname: "Nome Completo", id: "UserID" })
-            setLoadingUser(false)
-        }, 1000)
-
-        return () => clearTimeout(id)
+        autoLogin();
     }, [])
 
     return(

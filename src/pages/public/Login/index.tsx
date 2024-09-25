@@ -1,13 +1,10 @@
 import { Box, Button, Container, Stack, TextField, ThemeProvider, Typography } from "@mui/material";
 import appTheme from "../../../styles/theme";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../providers/UserProvider";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import LogoTitle from "../../../components/LogoTitle";
 import { Link } from "react-router-dom";
-import API from "../../../service/API";
-import { toast } from "react-toastify";
-import { AxiosError } from "axios";
 
 export default function Login() {
 
@@ -15,13 +12,12 @@ export default function Login() {
     const { register, handleSubmit } = useForm();
 
     const submit:SubmitHandler<FieldValues> = async (data) => {
-        try {
-            await API.post("login", data);
-        } catch (error) {
-            if(error instanceof AxiosError)
-                toast.error(error.response?.data.message)
-        }
+        await login(data.email, data.password);
     }
+
+    useEffect(() => {
+        localStorage.removeItem("@TOKEN")
+    }, [])
 
     return (
         <ThemeProvider theme={appTheme}>

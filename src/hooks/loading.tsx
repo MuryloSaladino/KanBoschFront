@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-export default function useLoading(asyncCallback:() => Promise<void>) {
+export default function useLoading<TReturn>(asyncCallback:(...args:any[]) => Promise<TReturn>) {
 
     const [loading, setLoading] = useState(false);
 
-    const handleCallback = async () => {
+    const loadCallback = async () => {
         setLoading(true);
-        await asyncCallback();
+        const response = await asyncCallback();
         setLoading(false);
+        return response;
     }
 
-    return { loading, handleCallback }
+    return { loading, loadCallback }
 }
