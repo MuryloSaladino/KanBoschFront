@@ -8,9 +8,14 @@ import { RouterProvider } from 'react-router-dom'
 import mainRouter from './routes'
 import { ToastContainer } from 'react-toastify'
 
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={mainRouter}/>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <RouterProvider router={mainRouter}/>
+        </LocalizationProvider>
         <ToastContainer
             position='top-center'
         />

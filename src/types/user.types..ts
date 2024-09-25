@@ -10,3 +10,12 @@ export type TUser = {
     email: string;
     details: TUserDetails;
 }
+
+export type TUserCreation = {
+    email: string;
+    password: string;
+    birthdate: string;
+    firstName: string;
+    lastName: string;
+    profilePicture: string | null;
+}
