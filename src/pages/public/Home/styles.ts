@@ -5,9 +5,10 @@ export const StyledMainBox = styled(Box)(() => ({
     color: "white",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "80vh",
+    minHeight: "100vh",
     gap: "50px",
     padding: "50px",
+    backgroundImage: 'url("/Kanbom.png")'
 }))
 
 export const StyledTextBox = styled(Box)(() => ({
