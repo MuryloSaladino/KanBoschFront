@@ -2,9 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/public/Login";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Home from "../pages/public/Home";
-import { UserProvider } from "../providers/UserProvider";
 import NotFound from "../pages/public/NotFound";
 import Register from "../pages/public/Register";
+import Dashboard from "../pages/protected/Dashboard";
 
 const mainRouter = createBrowserRouter([
     {
@@ -13,11 +13,7 @@ const mainRouter = createBrowserRouter([
     },
     {
         path: "/login",
-        element: (
-            <UserProvider> 
-                <Login/> 
-            </UserProvider>
-        )
+        element: <Login/> 
     },
     {
         path: "/register",
@@ -29,12 +25,13 @@ const mainRouter = createBrowserRouter([
     },
     {
         path: "/",
-        element: (
-            <UserProvider> 
-                <ProtectedRoute/> 
-            </UserProvider>
-        ),
-        children: []
+        element: <ProtectedRoute/>,
+        children: [
+            {
+                path: "/dashboard",
+                element: <Dashboard/>
+            }
+        ]
     }
 ])
 
