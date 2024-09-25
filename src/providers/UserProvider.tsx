@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
-import { TUser } from "../types/user.types";
 import { useNavigate } from "react-router-dom";
+import { TUser } from "../types/user.types.";
+import useLoading from "../hooks/loading";
 
 interface IUserProvider {
     user: TUser | null;
@@ -16,7 +17,7 @@ export function UserProvider({ children }: { children?: ReactNode }) {
     const navigate = useNavigate()
 
     const [user, setUser] = useState<TUser | null>(null)
-    const [loadingUser, setLoadingUser] = useState(false)
+    const {} = useLoading(login)
 
     const logout = () => {
         setUser(null)
@@ -24,7 +25,7 @@ export function UserProvider({ children }: { children?: ReactNode }) {
     }
 
     const login = async (email:string, password: string) => {
-        setUser({ email, fullname: "Nome Completo", id: "UserID" })
+
     }
 
     // teste de auto login
