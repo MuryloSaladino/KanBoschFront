@@ -5,6 +5,7 @@ import Header from "./components/Header";
 
 export default function Home() {
     const isMobile = useMediaQuery('(max-width:600px)');
+    const isTablet = useMediaQuery('(max-width:900px)')
 
     return (
         <StyledBg>
@@ -15,7 +16,7 @@ export default function Home() {
                         Transformando Ideias em ações, navegando pelo seu fluxo.</Typography>
                     <Link to={"/login"}><Button color="primary" variant="contained" sx={{margin: "20px"}}>Começar</Button></Link>
                 </StyledTextBox>
-                <StyledSquareBox style={{display: isMobile? 'none' : 'block'}}>
+                <StyledSquareBox style={{display: isTablet? 'none' : 'block'}}>
                     <img src="/Boxes.png" style={{height: "40vh"}}/>
                 </StyledSquareBox>
             </StyledMainBox>
@@ -27,7 +28,7 @@ export default function Home() {
                     <img src="/checkbox.png" style={{height: "40px"}}/>
                 </StyledRow>
                 <Typography variant={isMobile? 'h5' : 'h4'}>Organize suas tarefas da maneira que preferir.</Typography>
-                <Stack flexDirection="row" gap={3}>
+                <Stack flexDirection="row" gap={3} flexWrap="wrap" justifyContent="center">
                     <StyledCard ballColor="#0097b2"/>
                     <StyledCard ballColor="#ff914d"/>
                     <StyledCard ballColor="#0d3044"/>

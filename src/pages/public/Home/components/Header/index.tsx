@@ -12,6 +12,7 @@ export default function Header() {
             display={"flex"}
             flexDirection={"row"}
             alignItems={"center"}
+            zIndex={100000000}
         >
             <Box sx={{height: "4vh"}}>
                 <img src="/logo.svg" alt="Logo" style={{ height: '100%' }} />
