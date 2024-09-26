@@ -4,7 +4,6 @@ import Sidebar from "../../../components/Sidebar";
 
 export default function Dashboard() {
 
-
     return(
         <>
             <Box display="flex" minHeight="100vh" bgcolor="background.paper" width="100%">

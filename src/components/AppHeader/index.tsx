@@ -11,6 +11,8 @@ interface IAppHeaderProps {
 export default function AppHeader({ location }:IAppHeaderProps) {
 
     const { user } = useContext(UserContext)
+    console.log(user);
+    
 
     return(
         <Box width="100%" border="3px solid #2C2B4C">
@@ -28,11 +30,14 @@ export default function AppHeader({ location }:IAppHeaderProps) {
                             <NotificationsIcon sx={{ height: "100%", color: "#BEC1DC" }}/>
                         </CircleButton>
                     </Tooltip>
-                    <Tooltip title={`${user?.details.firstName} ${user?.details.lastName}`}>
-                        <CircleButton>
-                            <Avatar src="/avatar.svg"/>
-                        </CircleButton>
-                    </Tooltip>
+                    {
+                        user && 
+                        <Tooltip title={`${user?.details.firstName} ${user?.details.lastName}`}>
+                            <CircleButton>
+                                <Avatar src="/avatar.svg"/>
+                            </CircleButton>
+                        </Tooltip>
+                    }
                 </Box>
             </Toolbar>
         </Box>

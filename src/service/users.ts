@@ -4,10 +4,10 @@ import { TUser, TUserCreation } from "../types/user.types.";
 
 export const getUser = async (token:string, onError?:(err:AxiosError) => void): Promise<TUser | undefined> => {
     try {
-        return await API.get(
+        return (await API.get(
             "/users", 
             { headers: { Authorization: `Bearer ${token}` } }
-        );
+        )).data;
     } catch (err) {
         if(err instanceof AxiosError && onError)
             onError(err)
