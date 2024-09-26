@@ -13,7 +13,7 @@ export default function Home() {
                 <StyledTextBox>
                     <Typography variant={isMobile? 'h4' : 'h3'}>KanBom
                         Transformando Ideias em ações, navegando pelo seu fluxo.</Typography>
-                    <Button color="primary" variant="contained" sx={{margin: "20px"}}><Link to={"/login"}>Começar</Link></Button>
+                    <Link to={"/login"}><Button color="primary" variant="contained" sx={{margin: "20px"}}>Começar</Button></Link>
                 </StyledTextBox>
                 <StyledSquareBox style={{display: isMobile? 'none' : 'block'}}>
                     <img src="/Boxes.png" style={{height: "40vh"}}/>
