@@ -1,7 +1,7 @@
 import { Button, Typography, useMediaQuery } from "@mui/material";
 import { StyledMainBox, StyledTextBox } from "./styles";
 import { Link } from "react-router-dom";
-import Header from "../../../components/Header";
+import Header from "./components/Header";
 
 export default function Home() {
     const isMobile = useMediaQuery('(max-width:600px)');
