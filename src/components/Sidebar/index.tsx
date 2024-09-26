@@ -13,10 +13,10 @@ export default function Sidebar() {
             <LogoTitle/>
 
             <Stack gap={3} width="100%">
-                <MenuItem><HomeIcon/> Home</MenuItem>
-                <MenuItem><TaskIcon/> Tasks</MenuItem>
+                <MenuItem><HomeIcon/> Dashboard</MenuItem>
                 <MenuItem><FolderCopyIcon/> Projects</MenuItem>
                 <MenuItem><GroupsIcon/> Teams</MenuItem>
+                <MenuItem><TaskIcon/> Tasks</MenuItem>
             </Stack>
         </Box>
     )
@@ -24,7 +24,7 @@ export default function Sidebar() {
 
 function MenuItem({children}:{children:ReactNode}) {
     return(
-        <Button sx={{ display: "flex", gap: 3, alignItems: "center", color: "#BEC1DC", width: "100%", fontSize: "1.25rem" }}>
+        <Button sx={{ display: "flex", gap: 3, alignItems: "center", justifyContent: "start", color: "#BEC1DC", width: "100%", fontSize: "1.25rem" }}>
             { children }
         </Button>
     )
