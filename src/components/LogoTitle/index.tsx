@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
 export default function LogoTitle() {
-
     return(
         <Box sx={{
             display: "flex",
@@ -19,6 +18,7 @@ export default function LogoTitle() {
             <Typography 
                 fontWeight={700}
                 fontSize="2rem"
+                color="inherit"
             >KanBom</Typography>
         </Box>
     )

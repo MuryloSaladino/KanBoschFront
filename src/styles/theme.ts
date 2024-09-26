@@ -7,6 +7,9 @@ const appTheme = createTheme({
             light: "#90E0EF",
             dark: "#03045E"
         },
+        background: {
+            paper: "#242337"
+        }
     }
 })
 
