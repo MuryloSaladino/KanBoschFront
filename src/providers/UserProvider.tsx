@@ -33,7 +33,9 @@ export function UserProvider({ children }: { children?: ReactNode }) {
         if(token) {
             setLoadingUser(true);
             setUser(await getUser(token));
-            setLoadingUser(false);
+            setTimeout(() => {
+                setLoadingUser(false);
+            }, 1500)
         }
     }, [])
 
