@@ -16,14 +16,12 @@ export default function Login() {
     const navigate = useNavigate()
 
     const submit:SubmitHandler<ILoginPayload> = async (data) => {
-        console.log(data);
         const res = await internalAPI.post("/login", data)
         
         if(res.success) {
-            navigate("/home")
+            navigate("/login")
             return
         }
-
         res.showMessage()
     }
 
@@ -73,7 +71,7 @@ export default function Login() {
             >login</SubmitButton>
 
             <Typography variant="body1" textAlign="center">
-                New around here? <Link to="register">Register</Link> to have full control over your projects today!
+                New around here? <Link to="/register">Register</Link> to have full control over your projects today!
             </Typography>
         </LoginContainer>
     )
