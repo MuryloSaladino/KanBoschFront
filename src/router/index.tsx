@@ -3,6 +3,7 @@ import NotFound from "../pages/public/NotFound";
 import Login from "../pages/public/Login";
 import Register from "../pages/public/Register";
 import RouteProtection from "../components/RouteProtection";
+import Home from "../pages/private/Home";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <RouteProtection/>,
         children: [
-            
+            {
+                path: "/home",
+                element: <Home/>
+            }
         ]
     }
 ])
