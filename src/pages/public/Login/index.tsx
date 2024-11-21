@@ -1,11 +1,11 @@
 import { ThemeProvider, Typography } from "@mui/material";
-import appTheme from "../../styles/theme";
+import appTheme from "../../../styles/theme";
 
-export default function Register() {
+export default function Login() {
 
     return (
         <ThemeProvider theme={appTheme}>
-            <Typography variant="h2">Register</Typography>
+            <Typography variant="h2">Login</Typography>
         </ThemeProvider>
     )
 }
