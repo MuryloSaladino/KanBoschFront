@@ -40,10 +40,6 @@ export default class Service {
         
         const json = await response.json()
 
-        if(response.status >= 400) {
-            toast.error(json.message)
-        }
-
         return { 
             data: json.data || null,
             success: response.status < 400,
@@ -57,15 +53,15 @@ export default class Service {
         return await this.jsonRequest<T>(url, "GET", headers)
     }
 
-    public async post<T = any>(url: string, headers?: HeadersInit, body?: any) {
+    public async post<T = any>(url: string, body?: any, headers?: HeadersInit) {
         return await this.jsonRequest<T>(url, "POST", headers, body);
     }
 
-    public async patch<T = any>(url: string, headers?: HeadersInit, body?: any) {
+    public async patch<T = any>(url: string, body?: any, headers?: HeadersInit) {
         return await this.jsonRequest<T>(url, "PATCH", headers, body);
     }
 
-    public async put<T = any>(url: string, headers?: HeadersInit, body?: any) {
+    public async put<T = any>(url: string, body?: any, headers?: HeadersInit) {
         return await this.jsonRequest<T>(url, "PUT", headers, body);
     }
 

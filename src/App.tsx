@@ -1,3 +1,5 @@
+import "./styles/global.css"
+
 import { UserProvider } from "./providers/UserProvider";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
@@ -5,7 +7,7 @@ import router from "./router";
 import { ThemeProvider } from "@emotion/react";
 import appTheme from "./styles/theme";
 
-import "./styles/global.css"
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
     return (
@@ -13,7 +15,7 @@ export default function App() {
             <ThemeProvider theme={appTheme}>
                 <RouterProvider router={router}/>
             </ThemeProvider>
-            
+            <ToastContainer position="top-center"/>
         </UserProvider>
     )    
 }
