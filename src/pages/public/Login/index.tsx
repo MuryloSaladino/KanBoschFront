@@ -1,11 +1,16 @@
-import { ThemeProvider, Typography } from "@mui/material";
-import appTheme from "../../../styles/theme";
+import { Box } from "@mui/material";
+import { useForm } from "react-hook-form";
 
 export default function Login() {
 
+    const {  } = useForm()
+
     return (
-        <ThemeProvider theme={appTheme}>
-            <Typography variant="h2">Login</Typography>
-        </ThemeProvider>
+        <Box 
+            component="form"
+            sx={{  }}
+        >
+
+        </Box>
     )
 }
