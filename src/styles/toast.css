@@ -3,10 +3,10 @@
 :root {
     --toastify-color-light: #fff;
     --toastify-color-dark: #121212;
-    --toastify-color-info: #3498db;
-    --toastify-color-success: #07bc0c;
-    --toastify-color-warning: #f1c40f;
-    --toastify-color-error: #e74c3c;
+    --toastify-color-info: #116864;
+    --toastify-color-success: #006c3a;
+    --toastify-color-warning: #deb300;
+    --toastify-color-error: #be0004;
     --toastify-color-transparent: rgba(255, 255, 255, 0.7);
   
     --toastify-icon-color-info: var(--toastify-color-info);
@@ -37,12 +37,10 @@
     // toast("**hello**") */
     --toastify-color-progress-light: linear-gradient(
       to right,
-      #4cd964,
-      #5ac8fa,
-      #007aff,
-      #34aadc,
-      #5856d6,
-      #ff2d55
+      #00629a,
+      #116864,
+      #006c3a,
+      #791d73,
     );
     /* // Used when no type is provided */
     --toastify-color-progress-dark: #bb86fc;
