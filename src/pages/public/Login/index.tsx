@@ -19,7 +19,7 @@ export default function Login() {
         const res = await internalAPI.post("/login", data)
         
         if(res.success) {
-            navigate("/login")
+            navigate("/home")
             return
         }
         res.showMessage()
