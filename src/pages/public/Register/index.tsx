@@ -8,7 +8,7 @@ import { toast } from "react-toastify"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { IRegisterPayload, registerSchema } from "./schema"
 import { DatePicker } from "@mui/x-date-pickers"
-import dayjs from "dayjs"
+import dayjs, { Dayjs } from "dayjs"
 
 export default function Register() {
 
@@ -21,15 +21,15 @@ export default function Register() {
         resolver: zodResolver(registerSchema),
         mode: "onBlur"
     })
-    const [birthdate, setBirthdate] = useState(dayjs())
+    const [birthdate, setBirthdate] = useState<Dayjs | null>(null)
     const navigate = useNavigate()
 
     const submit:SubmitHandler<IRegisterPayload> = async (data) => {
         const res = await internalAPI.post("/users", data)
         
         if(res.success) {
-            navigate("/home")
-            toast.success("Account created! Login now to start managing your projects!")
+            toast.success("Account created! Redirecting to login...")
+            setTimeout(() => navigate("/login"), 2000)
             return
         }
         res.showMessage()
