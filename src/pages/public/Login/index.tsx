@@ -4,6 +4,7 @@ import { Stack, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import internalAPI from "../../../service/internal.services";
 import { KeyboardEvent } from "react";
+import Logo from "../../../components/Logo";
 
 interface ILoginPayload {
     email: string
@@ -35,13 +36,7 @@ export default function Login() {
         <LoginContainer onSubmit={handleSubmit(submit)}>
 
             <Stack spacing={3}>
-                <Typography
-                    variant="h2"
-                    color="primary.main"
-                    textAlign="center"
-                >
-                    KanBom
-                </Typography>
+                <Logo/>
                 <Typography
                     variant="h5"
                     textAlign="center"

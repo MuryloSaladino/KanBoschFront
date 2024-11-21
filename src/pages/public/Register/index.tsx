@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { IRegisterPayload, registerSchema } from "./schema"
 import { DatePicker } from "@mui/x-date-pickers"
 import dayjs, { Dayjs } from "dayjs"
+import Logo from "../../../components/Logo"
 
 export default function Register() {
 
@@ -47,13 +48,7 @@ export default function Register() {
             noValidate
         >
             <Stack spacing={3}>
-                <Typography
-                    variant="h2"
-                    color="primary.main"
-                    textAlign="center"
-                >
-                    KanBom
-                </Typography>
+                <Logo/>
                 <Typography
                     variant="h5"
                     textAlign="center"
