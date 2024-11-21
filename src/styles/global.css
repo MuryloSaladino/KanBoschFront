@@ -2,6 +2,15 @@
 @import url("./animations.css");
 @import url('./toast.css');
 
+
 * {
     box-sizing: border-box;
+}
+
+
+a {
+    color: inherit;
+}
+a:hover {
+    color: #00629a;
 }
