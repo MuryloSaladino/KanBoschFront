@@ -1,14 +1,11 @@
-import { useContext } from "react";
 import Header from "../../../components/Header";
-import useWorkspacesByUser from "./hooks/useWorkspacesByUser";
-import { UserContext } from "../../../providers/UserProvider";
+import useWorkspaces from "./hooks/useWorkspacesByUser";
 import { SMain } from "./styles";
 import { Typography } from "@mui/material";
 
 export default function Home() {
 
-    const { user } = useContext(UserContext)
-    const { workspaces } = useWorkspacesByUser(user?.id)
+    const { workspaces } = useWorkspaces()
 
     console.log(workspaces);
 

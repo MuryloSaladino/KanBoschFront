@@ -1,6 +1,16 @@
 import { Outlet } from "react-router-dom";
-import NotFound from "../../pages/public/NotFound";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserProvider";
+import LoadingPage from "../LoadingPage";
+import Login from "../../pages/public/Login";
 
 export default function RouteProtection() {
-    return localStorage.getItem("@TOKEN") ? <Outlet/> : <NotFound/>
+
+    const { user, loadingUser } = useContext(UserContext)
+
+    if(loadingUser) return <LoadingPage/>
+
+    if(!user) return <Login/>
+
+    return <Outlet/>
 }

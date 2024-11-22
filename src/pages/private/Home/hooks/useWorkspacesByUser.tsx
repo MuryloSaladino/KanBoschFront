@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IWorkspace } from "../../../../interfaces/workspaces.interfaces";
 import internalAPI from "../../../../service/internal.services";
+import { UserContext } from "../../../../providers/UserProvider";
 
-export default function useWorkspacesByUser(userId?: string, feedback?: boolean) {
+export default function useWorkspaces(feedback?: boolean) {
 
     const [workspaces, setWorkspaces] = useState<IWorkspace[]>([])
+    const { user } = useContext(UserContext)
 
     const fetchWorkspaces = async () => {
-        if(userId) {
-            const { success, data, showMessage } = await internalAPI.get<IWorkspace[]>(`/workspaces/users/${userId}`)
+        if(user) {
+            const { success, data, showMessage } = await internalAPI.get<IWorkspace[]>(`/workspaces/users/${user.id}`)
     
             if(data && success) {
                 setWorkspaces(data)

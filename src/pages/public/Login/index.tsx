@@ -3,8 +3,9 @@ import { LoginContainer, SubmitButton } from "./styles";
 import { Stack, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import internalAPI from "../../../service/internal.services";
-import { KeyboardEvent } from "react";
+import { KeyboardEvent, useContext } from "react";
 import Logo from "../../../components/Logo";
+import { UserContext } from "../../../providers/UserProvider";
 
 interface ILoginPayload {
     email: string
@@ -13,6 +14,7 @@ interface ILoginPayload {
 
 export default function Login() {
 
+    const { handleSetUser } = useContext(UserContext)
     const { register, handleSubmit } = useForm<ILoginPayload>()
     const navigate = useNavigate()
 
@@ -21,6 +23,7 @@ export default function Login() {
         
         if(data && success) {
             localStorage.setItem("@TOKEN", data.token)
+            handleSetUser(data.user)
             navigate("/home")
             return
         }
