@@ -1,14 +1,10 @@
-import { Typography } from "@mui/material";
 import { SHeader } from "./styles";
+import Logo from "../Logo";
 
 export default function Header() {
     return(
         <SHeader>
-            <Typography
-                color="primary.light"
-                variant="h6"
-                fontWeight={700}
-            >KanBom</Typography>
+            <Logo variant="h6"/>
         </SHeader>
     )
 }

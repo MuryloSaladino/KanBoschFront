@@ -1,11 +1,17 @@
 import { Typography } from "@mui/material";
 
-export default function Logo() {
+interface ILogoProps {
+    variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" 
+}
+
+export default function Logo({ variant = "h3" }: ILogoProps) {
+
     return(
         <Typography
-            variant="h2"
+            variant={variant}
             color="primary.main"
             textAlign="center"
+            fontWeight={700}
         >
             KanBom
         </Typography>
