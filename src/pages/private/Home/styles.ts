@@ -4,5 +4,7 @@ export const SMain = styled("div")(({ theme }) => ({
     height: "100vh",
 
     backgroundColor: theme.palette.grey["900"],
-    paddingTop: 50 
+    paddingTop: 50,
+
+    color: theme.palette.grey["400"]
 }))

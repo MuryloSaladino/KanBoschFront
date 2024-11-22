@@ -1,4 +1,6 @@
+import { v4 as uuid } from "uuid";
 import Header from "../../../components/Header";
+import WorkspaceCard from "./components/WorkspaceCard";
 import useWorkspaces from "./hooks/useWorkspacesByUser";
 import { SMain } from "./styles";
 import { Container, Stack, Typography } from "@mui/material";
@@ -14,11 +16,17 @@ export default function Home() {
             <SMain>
                 <Container>
                     <Typography 
-                        variant="h5"
-                    >YOUR WORKSPACES</Typography>
+                        variant="h6"
+                        fontWeight={700}
+                    >Your Workspaces</Typography>
 
-                    <Stack>
-                        {workspaces.map(workspace => <Typography>{workspace.name}</Typography>)}
+                    <Stack mt={5} spacing={3}>
+                        {workspaces.map(workspace => (
+                            <WorkspaceCard
+                                key={uuid()}
+                                workspace={workspace}
+                            />
+                        ))}
                     </Stack>
                 </Container>
             </SMain>
