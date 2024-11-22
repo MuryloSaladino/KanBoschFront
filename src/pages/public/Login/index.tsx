@@ -16,14 +16,15 @@ export default function Login() {
     const { register, handleSubmit } = useForm<ILoginPayload>()
     const navigate = useNavigate()
 
-    const submit:SubmitHandler<ILoginPayload> = async (data) => {
-        const res = await internalAPI.post("/login", data)
+    const submit:SubmitHandler<ILoginPayload> = async (payload) => {
+        const { data, showMessage, success } = await internalAPI.post("/login", payload)
         
-        if(res.success) {
+        if(data && success) {
+            localStorage.setItem("@TOKEN", data.token)
             navigate("/home")
             return
         }
-        res.showMessage()
+        showMessage()
     }
 
     const handleSubmitOnEnter = (e:KeyboardEvent<HTMLDivElement>) => {
