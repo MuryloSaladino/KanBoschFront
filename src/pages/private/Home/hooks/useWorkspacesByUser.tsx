@@ -8,9 +8,9 @@ export default function useWorkspacesByUser(userId?: string, feedback?: boolean)
 
     const fetchWorkspaces = async () => {
         if(userId) {
-            const { success, data, showMessage } = await internalAPI.get(`/workspaces/users/${userId}`)
+            const { success, data, showMessage } = await internalAPI.get<IWorkspace[]>(`/workspaces/users/${userId}`)
     
-            if(success) {
+            if(data && success) {
                 setWorkspaces(data)
             }
             if(feedback) {
