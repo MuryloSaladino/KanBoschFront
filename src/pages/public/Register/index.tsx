@@ -10,6 +10,7 @@ import { IRegisterPayload, registerSchema } from "./schema"
 import { DatePicker } from "@mui/x-date-pickers"
 import dayjs, { Dayjs } from "dayjs"
 import Logo from "../../../components/Logo"
+import { Routes } from "../../../constants/routes"
 
 export default function Register() {
 
@@ -30,7 +31,7 @@ export default function Register() {
         
         if(res.success) {
             toast.success("Account created! Redirecting to login...")
-            setTimeout(() => navigate("/login"), 2000)
+            setTimeout(() => navigate(Routes.LOGIN), 2000)
             return
         }
         res.showMessage()

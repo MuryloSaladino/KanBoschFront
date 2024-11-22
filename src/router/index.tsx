@@ -4,6 +4,7 @@ import Login from "../pages/public/Login";
 import Register from "../pages/public/Register";
 import RouteProtection from "../components/RouteProtection";
 import Home from "../pages/private/Home";
+import { Routes } from "../constants/routes";
 
 const router = createBrowserRouter([
     {
@@ -11,19 +12,19 @@ const router = createBrowserRouter([
         element: <NotFound/>
     },
     {
-        path: "/login",
+        path: Routes.LOGIN,
         element: <Login/> 
     },
     {
-        path: "/register",
+        path: Routes.REGISTER,
         element: <Register/> 
     },
     {
-        path: "/",
+        path: Routes.HOME,
         element: <RouteProtection/>,
         children: [
             {
-                path: "/home",
+                index: true,
                 element: <Home/>
             }
         ]

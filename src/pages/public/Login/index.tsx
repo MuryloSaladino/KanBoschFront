@@ -6,6 +6,7 @@ import internalAPI from "../../../service/internal.services";
 import { KeyboardEvent, useContext } from "react";
 import Logo from "../../../components/Logo";
 import { UserContext } from "../../../providers/UserProvider";
+import { Routes } from "../../../constants/routes";
 
 interface ILoginPayload {
     email: string
@@ -24,7 +25,7 @@ export default function Login() {
         if(data && success) {
             localStorage.setItem("@TOKEN", data.token)
             handleSetUser(data.user)
-            navigate("/home")
+            navigate(Routes.HOME)
             return
         }
         showMessage()
