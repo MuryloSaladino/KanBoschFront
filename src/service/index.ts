@@ -41,7 +41,7 @@ export default class Service {
         const json = await response.json()
 
         return { 
-            data: json.data || null,
+            data: json || null,
             success: response.status < 400,
             showMessage: response.status >= 400 ? 
                 () => toast.error(json.message) : 
