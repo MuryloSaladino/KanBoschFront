@@ -1,6 +1,7 @@
-import { styled, Typography } from "@mui/material"
+import { Typography } from "@mui/material"
 import { IBoard } from "../../../../../interfaces/boards.interfaces"
 import BlockLink from "../../../../../components/BlockLink"
+import { SBox } from "./styles"
 
 interface IBoardCardProps {
     board: IBoard
@@ -23,27 +24,3 @@ export default function BoardCard({ board }: IBoardCardProps) {
     )
 }
 
-const SBox = styled("div")<{ bgcolor: string }>(({ bgcolor }) => ({
-    width: "100%",
-    height: 100,
-
-    position: "relative",
-    paddingTop: 10,
-
-    overflow: "hidden",
-    
-    "::before": {
-        content: "''",
-        position: "absolute",
-        top: 0,
-        left: 0,
-
-        width: "100%",
-        height: "100%",
-
-        backgroundColor: bgcolor,
-        filter: "brightness(0.6)",
-        borderRadius: 5,
-        zIndex: 1
-    }
-}))
