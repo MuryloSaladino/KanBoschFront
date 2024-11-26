@@ -19,7 +19,7 @@ export const SBox = styled("div")<{ bgcolor: string }>(({ bgcolor }) => ({
         height: "100%",
 
         backgroundColor: bgcolor,
-        filter: "brightness(0.6)",
+        filter: "brightness(0.35)",
         borderRadius: 5,
         zIndex: 1
     }
