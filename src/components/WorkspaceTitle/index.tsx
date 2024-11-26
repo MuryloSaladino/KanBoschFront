@@ -19,7 +19,7 @@ export default function WorkspaceTitle({ size = "md", color, name }: IWorkspaceT
             </LetterBox>
             
             <Typography
-                fontSize={(size == "sm" ? 0.5 : size == "md" ? 0.8 : 1.5) + "rem"}
+                fontSize={(size == "sm" ? 0.5 : size == "md" ? 0.8 : 1.25) + "rem"}
                 fontWeight={600}
             >
                 { name }

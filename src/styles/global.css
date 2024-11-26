@@ -6,11 +6,3 @@
 * {
     box-sizing: border-box;
 }
-
-
-a {
-    color: inherit;
-}
-a:hover {
-    color: #00629a;
-}

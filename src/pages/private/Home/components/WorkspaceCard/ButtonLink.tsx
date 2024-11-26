@@ -33,6 +33,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
     alignItems: "center",
     gap: 8,
 
+    fontSize: "1.1rem",
+
     ':hover': {
         backgroundColor: theme.palette.grey["700"]
     },

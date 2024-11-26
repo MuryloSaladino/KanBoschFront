@@ -14,7 +14,7 @@ export default function Home() {
             <Header/>
 
             <SMain>
-                <Container>
+                <Container maxWidth="md">
                     <Typography 
                         variant="h6"
                         fontWeight={700}
