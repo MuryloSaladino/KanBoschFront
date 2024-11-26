@@ -3,6 +3,7 @@ import { IWorkspace } from "../../../../../interfaces/workspaces.interfaces"
 import WorkspaceTitle from "../../../../../components/WorkspaceTitle"
 import BoardCard from "../BoardCard"
 import WorkspaceOptions from "../WorkspaceOptions"
+import CreateBoardButton from "../CreateBoardButton"
 
 interface IWorkspaceCardProps {
     workspace: IWorkspace
@@ -26,6 +27,9 @@ export default function WorkspaceCard({ workspace }:IWorkspaceCardProps) {
                         <BoardCard board={board} />
                     </Grid2>
                 ))}
+                <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
+                    <CreateBoardButton/>
+                </Grid2>
             </Grid2>
         </Grid2>
     )

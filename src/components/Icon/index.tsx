@@ -9,8 +9,9 @@ export default function Icon({ name, size }: IIConProps) {
             className="material-symbols-rounded"
             style={{
                 fontSize:   size == "sm" ? "1rem" : 
-                            size == "md" ? "1.25rem" : 
-                            size == "lg" ? "1.5rem" : "inherit"
+                            size == "md" ? "1.5rem" : 
+                            size == "lg" ? "2.5rem" : "inherit",
+                userSelect: "none",
             }}
         >
             { name }

@@ -4,13 +4,17 @@ import WorkspaceCard from "./components/WorkspaceCard";
 import useWorkspaces from "./hooks/useWorkspacesByUser";
 import { SMain } from "./styles";
 import { Container, Stack, Typography } from "@mui/material";
+import { CreateBoardProvider } from "./providers/CreateBoardProvider";
+import CreateBoardModal from "./components/CreateBoardModal";
 
 export default function Home() {
 
     const { workspaces } = useWorkspaces()
 
     return(
-        <>
+        <CreateBoardProvider>
+            <CreateBoardModal/>
+
             <Header/>
 
             <SMain>
@@ -30,6 +34,6 @@ export default function Home() {
                     </Stack>
                 </Container>
             </SMain>
-        </>
+        </CreateBoardProvider>
     )
 }
