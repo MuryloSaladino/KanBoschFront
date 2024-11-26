@@ -1,20 +1,24 @@
 import { Button, styled } from "@mui/material";
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface IButtonLinkProps {
     children?: ReactNode
     icon?: ReactNode
+    to: string
 }
 
-export default function ButtonLink({ children, icon }: IButtonLinkProps) {
+export default function ButtonLink({ children, icon, to }: IButtonLinkProps) {
     return (
-        <StyledButton
-            variant="contained"
-            size="small"
-        >
-            { icon }
-            { children }
-        </StyledButton>
+        <Link to={to}>
+            <StyledButton
+                variant="contained"
+                size="small"
+            >
+                { icon }
+                { children }
+            </StyledButton>
+        </Link>
     )
 }
 
@@ -27,6 +31,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
     display: "flex",
     alignItems: "center",
+    gap: 8,
 
     ':hover': {
         backgroundColor: theme.palette.grey["700"]

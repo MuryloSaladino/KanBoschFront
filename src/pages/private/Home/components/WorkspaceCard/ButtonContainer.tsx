@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
-import { LinkButton } from "./styles";
-import { Link } from "react-router-dom";
+import ButtonLink from "./ButtonLink";
+import Icon from "../../../../../components/Icon";
 
 export default function ButtonContainer() {
 
@@ -11,25 +11,9 @@ export default function ButtonContainer() {
             justifyContent="end"
             gap={2}
         >
-            <Link to="">
-                <LinkButton 
-                    
-                >Boards</LinkButton>
-            </Link>
-
-            <Link to="">
-                <LinkButton 
-                    variant="contained"
-                    size="small"
-                >Members</LinkButton>
-            </Link>
-
-            <Link to="">
-                <LinkButton 
-                    variant="contained"
-                    size="small"
-                >Settings</LinkButton>
-            </Link>
+            <ButtonLink to="" icon={<Icon name="dashboard"/>}>Boards</ButtonLink>
+            <ButtonLink to="" icon={<Icon name="groups"/>}>Members</ButtonLink>
+            <ButtonLink to="" icon={<Icon name="settings"/>}>Settings</ButtonLink>
         </Stack>
     )
 }
