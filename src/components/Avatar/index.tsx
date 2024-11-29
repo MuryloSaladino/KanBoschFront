@@ -3,21 +3,29 @@ import styles from "./styles.module.css"
 
 interface IAvatarProps extends ComponentPropsWithoutRef<'img'> {
     size?: "small" | "medium" | "large"
-    tooltip?: string
+    username?: string
 }
 
 const Avatar = forwardRef<HTMLImageElement, IAvatarProps>(
-    ({ className, tooltip, size = "medium", ...props }, ref) => (
+    ({ className, username = "user", size = "medium", src, ...props }, ref) => (
         <div className={`${styles[size]} ${styles.avatar_container}`}>
-            <img 
-                ref={ref}
-                alt={tooltip || "Avatar"}
-                className={`${styles.avatar} ${className || ""}`}
-                {...props}
-            />
             {
-                tooltip &&
-                <span className={styles.tooltip}>{tooltip}</span>
+                src ?
+                <img 
+                    ref={ref}
+                    alt={username || "Avatar"}
+                    className={`${styles.avatar} ${className || ""}`}
+                    {...props}
+                /> : 
+                <div className={`${styles.avatar} ${className || ""}`}>
+                    { username.abreviate() }
+                </div>
+            }
+            {
+                username &&
+                <span className={styles.tooltip}>
+                    { username }
+                </span>
             }
         </div>
     )

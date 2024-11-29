@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import { Link as RouterDomLink } from "react-router-dom";
 import styles from "./styles.module.css"
-import { RouteMap } from "../../router/map";
+import { Routes } from "../../constants/routes";
 
 interface ILinkProps extends ComponentPropsWithoutRef<'a'> {
-    to: RouteMap;
+    to: Routes;
 }
 
 /**

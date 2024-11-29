@@ -8,7 +8,7 @@ import Register from "../pages/public/Register";
 
 const router = createBrowserRouter([
     {
-        path: "*",
+        path: Routes.NOT_FOUND,
         element: <NotFound/>
     },
     {
