@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
 
-export const LoginContainer = styled("form")(() => ({
+export const LoginContainer = styled("div")(() => ({
     width: "100%",
     maxWidth: 350,
     margin: "20vh auto",
@@ -11,6 +11,5 @@ export const LoginContainer = styled("form")(() => ({
 }))
 
 export const SubmitButton = styled(Button)(() => ({
-    width: "max-content",
     alignSelf: "end",
 }))
