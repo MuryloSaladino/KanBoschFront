@@ -1,8 +1,14 @@
 @import url("./reset.css");
 @import url("./animations.css");
 @import url('./toast.css');
+@import url('./fonts.css');
 
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    font-family: "BoschSans";
+    background-color: var(--gray-100);
 }

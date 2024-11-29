@@ -7,6 +7,7 @@
     75% { clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%) }
     100% { clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%) }
 }
+
 @keyframes loading-rotation {
     0% { transform: scaleY(1) rotate(0deg) }
     49.99% { transform: scaleY(1) rotate(135deg) }

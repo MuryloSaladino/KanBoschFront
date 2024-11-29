@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { IWorkspace } from "../../../../interfaces/workspaces.interfaces";
 import internalAPI from "../../../../service/internal.services";
-import { UserContext } from "../../../../providers/UserProvider";
+import { UserContext } from "../../../../contexts/user.context";
 
 export default function useWorkspaces(feedback?: boolean) {
 

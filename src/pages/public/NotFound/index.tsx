@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import Text from "../../../components/Text";
 
 export default function NotFound() {
     return (
-        <Box>
-            <Typography mt={5} variant="h2" textAlign="center">Page not found</Typography>
-        </Box>
+        <div>
+            <Text variant="h2" fontSize="xl3" fontWeight="semibold">Page not found</Text>
+        </div>
     )
 }
