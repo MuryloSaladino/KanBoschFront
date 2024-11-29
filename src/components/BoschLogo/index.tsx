@@ -23,9 +23,6 @@ interface IBoschLogoProps extends ComponentPropsWithoutRef<'img'> {
  *
  * // Small size with additional styling
  * <BoschLogo size="small" className="custom-logo-class" />
- *
- * // Large size with custom alt text
- * <BoschLogo size="large" alt="Custom Bosch Logo" />
  * ```
  *
  * Notes:
@@ -38,7 +35,7 @@ const BoschLogo = forwardRef<HTMLImageElement, IBoschLogoProps>(
         <img 
             ref={ref}
             alt="Bosch Logo"
-            src="/bosch_logo.png"
+            src="/images/logos/black_red.png"
             className={`${styles[size]} ${className ? className : ""}`}
             {...props}
         />
