@@ -1,8 +1,12 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import styles from "./styles.module.css"
+import variants from "./variants.module.css"
+import Icon from "../Icon";
 
 interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
     variant?: "contained" | "outlined"
+    iconName?: string
+    size?: "sm" | "md" | "lg"
 }
 
 /**
@@ -12,7 +16,7 @@ interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
  * - `variant` (string, optional): Defines the button style. Options are:
  *   - `"contained"`: A solid, filled button (default).
  *   - `"outlined"`: A button with an outlined border.
- * - `className` (string, optional): Additional CSS class names for styling.
+ * - `iconName` (string, optional): Additional icon to the left of the button.
  * - Other props: Supports all additional props of a native `<button>` element.
  *
  * Example usage:
@@ -29,12 +33,20 @@ interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
  *   Cancel
  * </Button>
  */
-const Button = forwardRef<HTMLButtonElement, IButtonProps>(({ variant = "outlined", className, ...props}, ref) => 
-    <button
-        ref={ref}
-        {...props}
-        className={`${styles.common} ${styles[variant]} ${className}`}
-    />
+const Button = forwardRef<HTMLButtonElement, IButtonProps>(
+    ({ className, children, iconName, size, variant = "outlined", ...props}, ref) => (
+        <button
+            ref={ref}
+            {...props}
+            className={`${styles.common} ${variants[variant]} ${className}`}
+        >
+            {iconName &&
+                <Icon name={iconName} size={size}/>
+            }
+
+            { children }
+        </button>
+    )
 )
 
 export default Button
