@@ -1,8 +1,9 @@
 export enum Routes {
     NOT_FOUND = "*",
 
-    LOGIN = "/login",
+    LOGIN = "/",
     REGISTER = "/register",
     
-    HOME = "/",
+    HOME = "/u/:userId",
+    BOARD = "/b/:boardId",
 }

@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material"
 import { IBoard } from "../../../../../interfaces/boards.interfaces"
-import BlockLink from "../../../../../components/BlockLink"
 import { SBox } from "./styles"
 
 interface IBoardCardProps {
@@ -9,7 +8,7 @@ interface IBoardCardProps {
 
 export default function BoardCard({ board }: IBoardCardProps) {
     return(
-        <BlockLink to="">
+        // <BlockLink to="">
             <SBox bgcolor={board.color}>
                 <Typography 
                     fontSize="1.25rem"
@@ -20,7 +19,7 @@ export default function BoardCard({ board }: IBoardCardProps) {
                     { board.name }
                 </Typography>
             </SBox>
-        </BlockLink>
+        // </BlockLink>
     )
 }
 

@@ -1,6 +1,6 @@
 import { Grid2 } from "@mui/material"
 import { IWorkspace } from "../../../../../interfaces/workspaces.interfaces"
-import WorkspaceTitle from "../../../../../components/WorkspaceTitle"
+// import WorkspaceTitle from "../../../../../components/WorkspaceTitle"
 import BoardCard from "../BoardCard"
 import WorkspaceOptions from "../WorkspaceOptions"
 import CreateBoardButton from "../CreateBoardButton"
@@ -14,7 +14,7 @@ export default function WorkspaceCard({ workspace }:IWorkspaceCardProps) {
     return(
         <Grid2 container spacing={3}>
             <Grid2 size={{ sm: 12, md: 4 }}>
-                <WorkspaceTitle color="#791d73" name={workspace.name} size="lg" />
+                {/* <WorkspaceTitle color="#791d73" name={workspace.name} size="lg" /> */}
             </Grid2>
 
             <Grid2 size={{ sm: 12, md: 8 }}>
