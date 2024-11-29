@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
-import Icon from "../../../../../components/Icon";
 import ButtonLink from "./ButtonLink";
+import Icon from "@/components/Icon";
 
 export default function WorkspaceOptions() {
 

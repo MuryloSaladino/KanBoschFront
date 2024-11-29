@@ -1,10 +1,10 @@
 import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import Button from "../Button";
 import styles from "./styles.module.css"
 import { IFormProps } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod"
-import Input from "../Input";
 import { z, ZodTypeAny } from "zod";
+import Input from "../Input";
+import Button from "../Button";
 
 /**
  * `Form` component: A dynamic and reusable form builder using `react-hook-form` and Zod for validation.

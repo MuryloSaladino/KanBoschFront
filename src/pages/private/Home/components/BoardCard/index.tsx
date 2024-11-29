@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material"
-import { IBoard } from "../../../../../interfaces/boards.interfaces"
 import { SBox } from "./styles"
+import { IBoard } from "@/interfaces/boards.interfaces"
 
 interface IBoardCardProps {
     board: IBoard

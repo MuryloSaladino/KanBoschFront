@@ -1,6 +1,6 @@
+import { IWorkspace } from "@/interfaces/workspaces.interfaces";
+// import internalAPI from "@/service/internal.services";
 import { useEffect, useState } from "react";
-import { IWorkspace } from "../../../../interfaces/workspaces.interfaces";
-// import internalAPI from "../../../../service/internal.services";
 
 export default function useWorkspaces(feedback?: boolean) {
 
@@ -8,7 +8,7 @@ export default function useWorkspaces(feedback?: boolean) {
 
     const fetchWorkspaces = async () => {
         // if(user) {
-        //     const { success, data, showMessage } = await internalAPI.get<IWorkspace[]>(`/workspaces/users/${user.id}`)
+            // const { success, data, showMessage } = await internalAPI.get<IWorkspace[]>(`/workspaces/users/${user.id}`)
     
         //     if(data && success) {
         //         setWorkspaces(data)

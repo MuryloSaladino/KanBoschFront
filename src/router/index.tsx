@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import NotFound from "../pages/public/NotFound";
-import RouteProtection from "../components/RouteProtection";
-import Home from "../pages/private/Home";
-import { Routes } from "../constants/routes";
-import Login from "../pages/public/Login";
-import Register from "../pages/public/Register";
+import Login from "@/pages/public/Login";
+import NotFound from "@/pages/public/NotFound";
+import Register from "@/pages/public/Register";
+import { Routes } from "@/constants/routes";
+import RouteProtection from "@/components/RouteProtection";
+import Home from "@/pages/private/Home";
 
 const router = createBrowserRouter([
     {
@@ -20,11 +20,11 @@ const router = createBrowserRouter([
         element: <Register/> 
     },
     {
-        path: Routes.HOME,
+        path: "/",
         element: <RouteProtection/>,
         children: [
             {
-                index: true,
+                path: Routes.HOME,
                 element: <Home/>
             }
         ]

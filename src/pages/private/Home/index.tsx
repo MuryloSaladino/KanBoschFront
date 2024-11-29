@@ -5,7 +5,7 @@ import { SMain } from "./styles";
 import { Container, Stack, Typography } from "@mui/material";
 import { CreateBoardProvider } from "./providers/CreateBoardProvider";
 import CreateBoardModal from "./components/CreateBoardModal";
-import Header from "../../../components/Header";
+import Header from "@/components/Header";
 
 export default function Home() {
 

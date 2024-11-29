@@ -1,9 +1,9 @@
 import { Grid2 } from "@mui/material"
-import { IWorkspace } from "../../../../../interfaces/workspaces.interfaces"
 // import WorkspaceTitle from "../../../../../components/WorkspaceTitle"
 import BoardCard from "../BoardCard"
 import WorkspaceOptions from "../WorkspaceOptions"
 import CreateBoardButton from "../CreateBoardButton"
+import { IWorkspace } from "@/interfaces/workspaces.interfaces"
 
 interface IWorkspaceCardProps {
     workspace: IWorkspace

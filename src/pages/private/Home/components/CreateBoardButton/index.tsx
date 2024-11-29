@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { CreateBoardContext } from "../../providers/CreateBoardProvider"
 import { SBox } from "./styles"
-import Icon from "../../../../../components/Icon"
+import Icon from "@/components/Icon"
+import { CreateBoardContext } from "../../providers/CreateBoardProvider"
 
 export default function CreateBoardButton() {
 
