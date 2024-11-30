@@ -17,7 +17,7 @@
 .header::after {
     content: "";
     
-    background-image: url("/bosch-colors.svg");
+    background-image: url("/images/background/bosch-colors.svg");
     background-repeat: no-repeat;
     background-size: cover;
     
