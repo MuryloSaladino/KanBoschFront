@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
 import styles from "./styles.module.css"
 
-interface IBoschLogoProps extends ComponentPropsWithoutRef<'img'> {
+interface IBoschLogoProps {
     size?: "small" | "medium" | "large"
+    variant?: "red" | "black" | "white" | "icon"
 }
 
 /**
@@ -30,16 +30,14 @@ interface IBoschLogoProps extends ComponentPropsWithoutRef<'img'> {
  * - The `alt` text defaults to `"Bosch Logo"` but can be overridden using props.
  * - The `size` prop applies pre-defined styles from `styles.module.css`.
  */
-const BoschLogo = forwardRef<HTMLImageElement, IBoschLogoProps>(
-    ({ className, size = "medium", ...props }, ref) => (
+export default function BoschLogo({ size = "medium", variant = "red" }: IBoschLogoProps) {
+    return (
         <img 
-            ref={ref}
             alt="Bosch Logo"
-            src="/images/logos/black_red.png"
-            className={`${styles[size]} ${className ? className : ""}`}
-            {...props}
+            src={`/images/logos/${variant}.svg`}
+            className={`${styles[size]} ${styles.grow}`}
         />
     )
-)
+}
 
-export default BoschLogo
+
