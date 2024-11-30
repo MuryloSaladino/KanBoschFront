@@ -5,6 +5,8 @@ import { z } from "zod"
 import Text from "@/components/Text"
 import Link from "@/components/Link"
 import { Routes } from "@/constants/routes"
+import internalAPI from "@/service/internal.services"
+import { useNavigate } from "react-router-dom"
 
 interface ILoginPayload {
     email: string
@@ -13,13 +15,23 @@ interface ILoginPayload {
 
 export default function Login() {
 
+    const navigate = useNavigate()
+
     const fields:IFormInput[] = [
         { fieldName: "email", label: "email", zodSchema: z.string().email() },
-        { fieldName: "password", label: "password", required: true }
+        { fieldName: "password", label: "password", required: true, type: "password" }
     ]
 
-    const submit = async (data:ILoginPayload) => {
-        console.log(data)
+    const submit = async (payload:ILoginPayload) => {
+        const { data, success, showMessage } = await internalAPI.post("/login", payload)
+        
+        if(!success) {
+            showMessage()
+            return
+        }
+
+        localStorage.setItem("@TOKEN", data.token)
+        navigate("/u/" + data.user.id)
     }
 
     return(
