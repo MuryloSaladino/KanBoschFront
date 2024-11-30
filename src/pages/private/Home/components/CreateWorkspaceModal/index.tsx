@@ -1,4 +1,4 @@
-export default function CreateBoardModal() {
+export default function CreateWorkspaceModal() {
     return(
         <>
             
