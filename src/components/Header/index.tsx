@@ -31,7 +31,6 @@ const Header = ({  }:IHeaderProps) => {
 
                 <nav>
                     <Avatar 
-                        src="/avatar.png" 
                         username="Murylo Saladino"
                         onClick={() => setMenuOpen(true)}
                         className={styles.user_icon}

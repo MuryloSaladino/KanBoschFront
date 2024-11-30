@@ -1,3 +1,5 @@
+import "./types/extensions/string.extensions"
+
 import "./styles/global.css"
 
 import { RouterProvider } from "react-router-dom";
