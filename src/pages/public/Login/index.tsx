@@ -3,6 +3,8 @@ import styles from "./styles.module.css"
 import Form from "@/components/Form"
 import { z } from "zod"
 import Text from "@/components/Text"
+import Link from "@/components/Link"
+import { Routes } from "@/constants/routes"
 
 interface ILoginPayload {
     email: string
@@ -30,6 +32,10 @@ export default function Login() {
                     onSubmit={submit}
                     submitText="login"
                 />
+
+                <Text textAlign="center" fontSize="lg">
+                    You don't have an account yet? <br/> <Link to={Routes.REGISTER}>Register right now!</Link>
+                </Text>
             </div>
         </div>
     )

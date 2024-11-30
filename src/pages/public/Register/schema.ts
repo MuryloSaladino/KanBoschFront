@@ -1,4 +1,46 @@
+import { IFormInput } from "@/components/Form/types";
 import { z } from "zod";
+
+export const fields:IFormInput[] = [
+    { 
+        fieldName: "email",
+        label: "email",
+        zodSchema: z.string().email() 
+    },
+    { 
+        fieldName: "password", 
+        label: "password",
+        type: "password",
+        zodSchema:  z
+            .string()
+            .min(8, "At least 8 characters")
+            .regex(/(?=.*?[A-Z])/, "At least one uppercase letter")
+            .regex(/(?=.*?[a-z])/, "At least one lowercase letter")
+            .regex(/(?=.*?[0-9])/, "At least one number")
+            .regex(/(?=.*?[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).*$/, "At least one special character"),
+    },
+    {
+        fieldName: "confirm",
+        label: "confirm password",
+        type: "password",
+        zodSchema:  z.string(),
+    },
+    {
+        fieldName: "birthdate",
+        label: "birthdate",
+        type: "date",
+    },
+    {
+        fieldName: "firstName",
+        label: "first name",
+        zodSchema: z.string().min(3),
+    },
+    {
+        fieldName: "lastName",
+        label: "last name",
+        zodSchema: z.string().min(3),
+    },
+]
 
 export const registerSchema = z.object({
     email: z
