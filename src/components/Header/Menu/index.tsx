@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import styles from "./styles.module.css"
+import Icon from "@/components/Icon";
 
 interface IMenuProps {
     open: boolean;
@@ -21,10 +22,12 @@ export default ({ open, handleClose }:IMenuProps) => {
                 className={`${styles.menu} ${open ? styles.menu_showing : styles.menu_closing}`}
                 onClick={handleModalClick}
             >
-                <button 
+                <Icon 
+                    name="close"
+                    size="lg"
                     className={styles.close_button}
                     onClick={handleClose}
-                >X</button>
+                >X</Icon>
 
                 <div className={styles.link_list}>
                     

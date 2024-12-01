@@ -35,16 +35,14 @@ interface IIConProps extends ComponentPropsWithoutRef<'span'> {
  * <Icon name="account_circle" />
  * ```
  */
-const Icon = forwardRef<HTMLSpanElement, IIConProps>(({ name, size = "inherit", className, ...props }, ref) => {
-    return(
-        <span 
-            ref={ref}
-            className={`material-symbols-sharp ${styles.icon} ${styles[size]} ${className}`}
-            {...props}
-        >
-            { name }
-        </span>
-    )
-})
+const Icon = forwardRef<HTMLSpanElement, IIConProps>(({ name, size = "inherit", className, ...props }, ref) => 
+    <span 
+        ref={ref}
+        className={`material-symbols-sharp ${styles.icon} ${styles[size]} ${className}`}
+        {...props}
+    >
+        { name }
+    </span>
+)
 
 export default Icon
