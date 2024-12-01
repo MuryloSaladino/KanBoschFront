@@ -28,8 +28,6 @@
 }
 
 .tooltip {
-    width: max-content;
-
     position: absolute;
     top: 110%;
     left: 50%;
@@ -44,6 +42,11 @@
 
     opacity: 0;
     transition: 0.5s;
+}
+@media(max-width: 500px) {
+    .tooltip {
+        display: none;
+    }
 }
 
 .avatar:hover + .tooltip, .tooltip:hover {
