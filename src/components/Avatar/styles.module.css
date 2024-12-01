@@ -17,6 +17,14 @@
     aspect-ratio: 1/1;
 
     border-radius: 50%;
+    background-color: var(--primary-main);
+
+    color: var(--gray-0);
+    user-select: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tooltip {
@@ -40,4 +48,8 @@
 
 .avatar:hover + .tooltip, .tooltip:hover {
     opacity: 1;
+}
+
+.clickable {
+    cursor: pointer;
 }

@@ -23,6 +23,8 @@ interface IHeaderProps {
 const Header = ({  }:IHeaderProps) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    console.log(menuOpen);
+    
 
     return(
         <>
@@ -33,9 +35,7 @@ const Header = ({  }:IHeaderProps) => {
                     <Avatar 
                         username="Murylo Saladino"
                         onClick={() => setMenuOpen(true)}
-                        className={styles.user_icon}
                     />
-                    
                 </nav>
             </header>
 
