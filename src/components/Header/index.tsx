@@ -23,8 +23,6 @@ interface IHeaderProps {
 const Header = ({  }:IHeaderProps) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
-    console.log(menuOpen);
-    
 
     return(
         <>

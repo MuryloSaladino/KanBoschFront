@@ -4,7 +4,8 @@ import useWorkspaces from "./hooks/useWorkspaces";
 
 export default function Home() {
 
-    const {  } = useWorkspaces()
+    const { workspaces } = useWorkspaces()
+    console.log(workspaces)
 
     return(
         <>
@@ -12,7 +13,7 @@ export default function Home() {
 
             <Header/>
 
-
+            
         </>
     )
 }
