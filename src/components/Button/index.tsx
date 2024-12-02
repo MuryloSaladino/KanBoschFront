@@ -7,6 +7,7 @@ interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
     variant?: "contained" | "outlined"
     iconName?: string
     size?: "sm" | "md" | "lg"
+    fullwidth?: boolean
 }
 
 /**
@@ -34,11 +35,11 @@ interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
  * </Button>
  */
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-    ({ className, children, iconName, size = "md", variant = "outlined", ...props}, ref) => (
+    ({ className, children, iconName, fullwidth, size = "md", variant = "contained", ...props}, ref) => (
         <button
             ref={ref}
             {...props}
-            className={`${styles.common} ${variants[variant]} ${className} ${styles[size]}`}
+            className={`${styles.common} ${variants[variant]} ${className} ${styles[size]} ${fullwidth ? styles.fullwidth : ""}`}
         >
             {iconName &&
                 <Icon name={iconName} size={size}/>
