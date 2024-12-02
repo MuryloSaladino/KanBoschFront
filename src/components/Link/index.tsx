@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import { Link as RouterDomLink } from "react-router-dom";
 import styles from "./styles.module.css"
-import { Routes } from "@/constants/routes";
 
 interface ILinkProps extends ComponentPropsWithoutRef<'a'> {
-    to: Routes;
+    to: string
+    type?: "text" | "box"
 }
 
 /**
@@ -20,11 +20,11 @@ interface ILinkProps extends ComponentPropsWithoutRef<'a'> {
  * <Link to={RouteMap.HOME}>Go to Home</Link>
  * ```
  */
-const Link = forwardRef<HTMLAnchorElement, ILinkProps>(({ className, ...props }, ref) => 
+const Link = forwardRef<HTMLAnchorElement, ILinkProps>(({ className, type = "text", ...props }, ref) => 
     <RouterDomLink 
         ref={ref}
         {...props}
-        className={`${styles.link} ${className}`}
+        className={`${styles.link} ${styles[type]} ${className}`}
     />
 )
 
