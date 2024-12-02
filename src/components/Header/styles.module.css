@@ -1,5 +1,5 @@
 .header {
-    min-height: 80px;
+    height: var(--header-height);
     width: 100%;
     
     position: sticky;
