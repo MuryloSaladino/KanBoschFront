@@ -6,5 +6,5 @@ export interface IWorkspace {
 	updatedAt: string
     name: string
     ownerId: string
-    boards?: IBoard[]
+    boards: IBoard[]
 }
