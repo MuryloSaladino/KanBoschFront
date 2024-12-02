@@ -29,3 +29,20 @@
     text-align: center;
     color: var(--gray-0);
 }
+
+.creation_btn {
+    cursor: pointer;
+    transition: 0.2s;
+
+    background-color: var(--gray-400);
+    border-radius: 5px;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.creation_btn:hover {
+    background-color: var(--gray-600);
+}
