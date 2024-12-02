@@ -2,10 +2,10 @@ import { MouseEventHandler, ReactNode } from "react";
 import styles from "./styles.module.css"
 
 interface IModalProps {
-    open: boolean;
-    handleClose: () => void;
-    children?: ReactNode;
-    maxWidth?: "xs" | "sm" | "md" | "lg" | "xl";
+    open: boolean
+    onClose: () => void
+    children?: ReactNode
+    maxWidth?: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
 /**
@@ -51,7 +51,7 @@ interface IModalProps {
 const Modal = ({ 
     children,
     open,
-    handleClose,
+    onClose,
     maxWidth = "md" 
 }:IModalProps) => {
 
@@ -62,7 +62,7 @@ const Modal = ({
     return open && (
         <div 
             className={styles.modal_container}
-            onClick={handleClose}
+            onClick={onClose}
         >
             <div 
                 className={`${styles.modal} ${styles[maxWidth]}`}
@@ -70,7 +70,7 @@ const Modal = ({
             >
                 <button 
                     className={styles.close_button}
-                    onClick={handleClose}
+                    onClick={onClose}
                 >X</button>
 
                 { children }
