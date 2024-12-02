@@ -4,15 +4,17 @@ import useWorkspaces from "./hooks/useWorkspaces";
 import styles from "./styles.module.css"
 import WorkspaceCard from "./components/WorkspaceCard";
 import Text from "@/components/Text";
+import CreateWorkspaceModal from "./components/CreateWorkspaceModal";
+import { HomeProvider } from "./context";
 
 export default function Home() {
 
     const { workspaces } = useWorkspaces()
-    console.log(workspaces)
 
     return(
-        <>
+        <HomeProvider>
             <CreateBoardModal/>
+            <CreateWorkspaceModal/>
 
             <Header/>
 
@@ -23,6 +25,6 @@ export default function Home() {
                     <WorkspaceCard key={workspace.id} workspace={workspace}/>
                 ))}
             </div>
-        </>
+        </HomeProvider>
     )
 }
