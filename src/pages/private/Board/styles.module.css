@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+
+    display: flex;
+}
+
+.list {
+    flex-grow: 1;
+}
