@@ -6,3 +6,9 @@ export interface IBoard {
     color: string
     workspaceId: string
 }
+
+export interface IBoardCreation {
+    name: string
+    color?: string
+    workspaceId: string
+}
