@@ -34,7 +34,7 @@
     cursor: pointer;
     transition: 0.2s;
 
-    background-color: var(--gray-400);
+    background-color: var(--gray-200);
     border-radius: 5px;
 
     color: white;
@@ -44,5 +44,5 @@
     align-items: center;
 }
 .creation_btn:hover {
-    background-color: var(--gray-600);
+    background-color: var(--gray-400);
 }
