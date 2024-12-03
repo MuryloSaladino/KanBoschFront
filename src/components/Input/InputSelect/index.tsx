@@ -31,6 +31,7 @@ const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
                     id={id}
                     label={label}
                     defaultValue={defaultValue}
+                    fullWidth
                     onChange={(e) => {
                         if(fieldName) setValue(fieldName, e.target.value)
                     }}

@@ -3,13 +3,19 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 import useWorkspaces from "../../hooks/useWorkspaces";
 import WorkspaceCard from "../WorkspaceCard";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { HomeContext } from "../../context";
 
 export default function WorkspaceList() {
 
-    const { workspaces } = useWorkspaces()
-    const { workspaceModal } = useContext(HomeContext)
+    const { workspaceModal, setWorkspaces, workspaces } = useContext(HomeContext)
+    const { workspaces: fetched } = useWorkspaces()
+
+    useEffect(() => {
+        if(fetched.length > 0) {
+            setWorkspaces(fetched)
+        }
+    }, [fetched])
 
     return(
         <div className={styles.container}>

@@ -10,7 +10,6 @@ import { IBoardCreation } from "@/interfaces/boards.interfaces"
 export default function CreateBoardModal() {
 
     const { boardModal } = useContext(HomeContext)
-    
 
     const fields:IFormInput[] = [
         { type: "select", fieldName: "workspaceId" }
@@ -24,6 +23,7 @@ export default function CreateBoardModal() {
         <Modal 
             open={boardModal.open} 
             onClose={boardModal.hide}
+            maxWidth="sm"
         >
             <div className={styles.container}>
                 <Text fontSize="xl2">Create Board</Text>
@@ -31,7 +31,7 @@ export default function CreateBoardModal() {
                 <Form
                     fields={fields}
                     onSubmit={submit}
-                    submitText="Create"
+                    submitText="create"
                 />
             </div>
         </Modal>
