@@ -17,7 +17,7 @@ interface ILoginPayload {
 export default function Login() {
 
     const navigate = useNavigate()
-    const { loadCallback, loading } = useLoading(internalAPI.jsonRequest)
+    const { loadCallback, loading } = useLoading(internalAPI.post)
 
     const fields:IFormInput[] = [
         { fieldName: "email", label: "email", zodSchema: z.string().email() },

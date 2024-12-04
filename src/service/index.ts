@@ -1,71 +1,78 @@
-import { toast } from "react-toastify";
-import { IHttpMethod, IServiceResponse } from "../interfaces/services.interfaces";
+import { toast } from "react-toastify"
+import { IHttpMethod, IServiceResponse } from "../interfaces/services.interfaces"
 
-export default class Service {
+// Default function to retrieve the Authorization token
+const defaultGetAuth = (): string => {
+    const token = localStorage.getItem("@TOKEN")
+    return `Bearer ${token}`
+}
 
-    public baseUrl: string
-    public contentType: string
-    public getAuth: () => string
+// Function to perform a JSON request
+export const baseRequest = async <T = any>(
+    url: string,
+    method: IHttpMethod,
+    contentType: string = "application/json",
+    getAuth: () => string = defaultGetAuth,
+    headers: HeadersInit = {},
+    body?: any
+): Promise<IServiceResponse<T>> => {
+    const response = await fetch(url, {
+        method,
+        body: body ? JSON.stringify(body) : undefined,
+        headers: {
+            "Content-Type": contentType,
+            "Authorization": getAuth(),
+            ...headers,
+        },
+    })
 
-    public constructor(
-        baseUrl: string,
-        contentType?: string,
-        getAuth?: () => string,
-    ) {
-        this.baseUrl = baseUrl
-        this.contentType = contentType || "application/json"
-        this.getAuth = getAuth || (() => {
-            const token = localStorage.getItem("@TOKEN");
-            return "Bearer " + token;
-        })
-    }
+    const json = await response.json()
 
-
-    public async jsonRequest<T = any>(
-        url: string, 
-        method: IHttpMethod, 
-        headers?: HeadersInit, 
-        body?: any,
-    ): Promise<IServiceResponse<T>> {
-
-        const response = await fetch(this.baseUrl + url, {
-            method,
-            body: body && JSON.stringify(body),
-            headers: {
-                "Content-Type": this.contentType,
-                "Authorization": this.getAuth(),
-                ...headers
-            }
-        })
-        
-        const json = await response.json()
-
-        return { 
-            data: json || null,
-            success: response.status < 400,
-            showMessage: response.status >= 400 ? 
-                () => toast.error(json.message) : 
-                () => toast.success(json.message)
-        }
-    }
-
-    public async get<T = any>(url: string, headers?: HeadersInit) {
-        return await this.jsonRequest<T>(url, "GET", headers)
-    }
-
-    public async post<T = any>(url: string, body?: any, headers?: HeadersInit) {
-        return await this.jsonRequest<T>(url, "POST", headers, body);
-    }
-
-    public async patch<T = any>(url: string, body?: any, headers?: HeadersInit) {
-        return await this.jsonRequest<T>(url, "PATCH", headers, body);
-    }
-
-    public async put<T = any>(url: string, body?: any, headers?: HeadersInit) {
-        return await this.jsonRequest<T>(url, "PUT", headers, body);
-    }
-
-    public async delete<T = any>(url: string, headers?: HeadersInit, body?: any) {
-        return await this.jsonRequest<T>(url, "DELETE", headers, body);
+    return {
+        data: json || null,
+        success: response.status < 400,
+        showMessage: response.status >= 400
+            ? () => toast.error(json.message)
+            : () => toast.success(json.message),
     }
 }
+
+// Individual HTTP method functions
+export const baseGet = async <T = any>(
+    url: string,
+    headers?: HeadersInit,
+    contentType?: string,
+    getAuth?: () => string
+) => baseRequest<T>(url, "GET", contentType, getAuth, headers)
+
+export const basePost = async <T = any>(
+    url: string,
+    body?: any,
+    headers?: HeadersInit,
+    contentType?: string,
+    getAuth?: () => string
+) => baseRequest<T>(url, "POST", contentType, getAuth, headers, body)
+
+export const basePatch = async <T = any>(
+    url: string,
+    body?: any,
+    headers?: HeadersInit,
+    contentType?: string,
+    getAuth?: () => string
+) => baseRequest<T>(url, "PATCH", contentType, getAuth, headers, body)
+
+export const basePut = async <T = any>(
+    url: string,
+    body?: any,
+    headers?: HeadersInit,
+    contentType?: string,
+    getAuth?: () => string
+) => baseRequest<T>(url, "PUT", contentType, getAuth, headers, body)
+
+export const baseDelete = async <T = any>(
+    url: string,
+    headers?: HeadersInit,
+    body?: any,
+    contentType?: string,
+    getAuth?: () => string
+) => baseRequest<T>(url, "DELETE", contentType, getAuth, headers, body)
