@@ -7,6 +7,7 @@ import Link from "@/components/Link"
 import { Routes } from "@/constants/routes"
 import internalAPI from "@/service/internal.services"
 import { useNavigate } from "react-router-dom"
+import useLoading from "@/hooks/useLoading"
 
 interface ILoginPayload {
     email: string
@@ -16,6 +17,7 @@ interface ILoginPayload {
 export default function Login() {
 
     const navigate = useNavigate()
+    const { loadCallback, loading } = useLoading(internalAPI.jsonRequest)
 
     const fields:IFormInput[] = [
         { fieldName: "email", label: "email", zodSchema: z.string().email() },
@@ -23,7 +25,7 @@ export default function Login() {
     ]
 
     const submit = async (payload:ILoginPayload) => {
-        const { data, success, showMessage } = await internalAPI.post("/login", payload)
+        const { data, success, showMessage } = await loadCallback("/login", payload)
         
         if(!success) {
             showMessage()
@@ -35,8 +37,8 @@ export default function Login() {
     }
 
     return(
-        <div className={styles.background} >
-            <div className={styles.container}>
+        <div className={styles.background}>
+            <div className={`${styles.container} ${loading ? "loading" : ""}`}>
                 <Text fontSize="xl3" fontWeight="semibold" textAlign="center">KanBosch</Text>
 
                 <Form
