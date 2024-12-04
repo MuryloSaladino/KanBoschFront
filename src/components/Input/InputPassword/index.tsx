@@ -9,7 +9,7 @@ export interface IInputPasswordProps extends IRootInputProps {
 }
 
 const InputPassword = forwardRef<HTMLInputElement, IInputPasswordProps>(
-    ({ error, type: initialType, label, helperText, id, ...props }, ref) => 
+    ({ error, type: initialType, label, helperText, id, fieldName, ...props }, ref) => 
 {
     const [type, setType] = useState<"text" | "password">(initialType)
 

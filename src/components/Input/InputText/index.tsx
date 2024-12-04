@@ -10,7 +10,7 @@ export interface IInputTextProps extends IRootInputProps {
 }
 
 const InputText = forwardRef<HTMLInputElement, IInputTextProps>(
-    ({ error, type = "text", label, helperText, id, iconName, ...props }, ref) => 
+    ({ error, type = "text", label, helperText, id, iconName, fieldName, ...props }, ref) => 
 {
     return (
         <InputContainer
