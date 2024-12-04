@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
 
-export default () => {
+export default function RouteProtection() {
     return <Outlet/>
 }
