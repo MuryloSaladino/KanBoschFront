@@ -1,8 +1,9 @@
-import { MenuItem, Select } from "@mui/material";
+import { MenuItem, Select, styled } from "@mui/material";
 import { forwardRef } from "react";
 import { IRootInputProps } from "../interfaces";
 import InputContainer from "../InputContainer";
 import { useFormContext } from "react-hook-form";
+import { v4 as uuid } from "uuid";
 
 type Option = { 
     label: string
@@ -16,7 +17,7 @@ export interface IInputSelectProps extends IRootInputProps {
 }
 
 const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
-    ({ options = [], error, label, helperText, id, defaultValue, fieldName }, ref) => {
+    ({ options = [], error, helperText, id, defaultValue = "", fieldName }, ref) => {
 
         const { setValue } = useFormContext();
 
@@ -29,7 +30,6 @@ const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
                 <Select 
                     ref={ref}
                     id={id}
-                    label={label}
                     defaultValue={defaultValue}
                     fullWidth
                     onChange={(e) => {
@@ -37,7 +37,12 @@ const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
                     }}
                 >
                     {options.map(option => (
-                        <MenuItem value={option.value}>{option.label}</MenuItem>
+                        <MenuItem 
+                            key={uuid()} 
+                            value={option.value}
+                        >
+                            {option.label}
+                        </MenuItem>
                     ))}
                 </Select>
             </InputContainer>

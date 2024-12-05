@@ -9,10 +9,13 @@ import { IBoardCreation } from "@/interfaces/boards.interfaces"
 
 export default function CreateBoardModal() {
 
-    const { boardModal } = useContext(HomeContext)
+    const { boardModal, workspaces } = useContext(HomeContext)
+
+    const workspaceOptions = workspaces.map(w => ({ value: w.id, label: w.name }))
 
     const fields:IFormInput[] = [
-        { type: "select", fieldName: "workspaceId" }
+        { fieldName: "name", label: "board name" },
+        { type: "select", fieldName: "workspaceId", options: workspaceOptions, label: "select workspace" },
     ]
 
     const submit = async (data: IBoardCreation) => {
