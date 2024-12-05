@@ -1,13 +1,11 @@
 import { toast } from "react-toastify"
 import { IHttpMethod, IServiceResponse } from "../interfaces/services.interfaces"
 
-// Default function to retrieve the Authorization token
 const defaultGetAuth = (): string => {
     const token = localStorage.getItem("@TOKEN")
     return `Bearer ${token}`
 }
 
-// Function to perform a JSON request
 export const baseRequest = async <T = any>(
     url: string,
     method: IHttpMethod,
@@ -37,7 +35,6 @@ export const baseRequest = async <T = any>(
     }
 }
 
-// Individual HTTP method functions
 export const baseGet = async <T = any>(
     url: string,
     headers?: HeadersInit,
