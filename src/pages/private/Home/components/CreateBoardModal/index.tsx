@@ -6,7 +6,7 @@ import styles from "./styles.module.css"
 import { IFormInput } from "@/components/Form/types"
 import Form from "@/components/Form"
 import { IBoard, IBoardCreation } from "@/interfaces/boards.interfaces"
-import internalServices from "@/service/internal.services"
+import api from "@/service/internal.services"
 
 export default function CreateBoardModal() {
 
@@ -20,7 +20,7 @@ export default function CreateBoardModal() {
     ]
 
     const submit = async ({ workspaceId, ...payload }: IBoardCreation) => {
-        const { data, success, showMessage } = await internalServices.post<IBoard>(`/boards/workspaces/${workspaceId}`, payload)
+        const { data, success, showMessage } = await api.post<IBoard>(`/boards/workspaces/${workspaceId}`, payload)
         
         if(data && success) {
             addBoard(data, workspaceId)
