@@ -1,3 +1,8 @@
 export interface INotification {
-    id: string
+    id: string,
+	message: string,
+	actions: {
+		url: string,
+		title: string
+	}
 }
