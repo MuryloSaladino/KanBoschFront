@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 import styles from "./styles.module.css"
 import Icon from "@/components/Icon";
 import internalAPI from "@/service/internal.services";
@@ -10,6 +10,8 @@ interface IMenuProps {
 
 export default ({ open, handleClose }:IMenuProps) => {
 
+    const [notifications, setNotifications] = useState([])
+
     const handleModalClick:MouseEventHandler = (e) => {
         e.stopPropagation()
     }
@@ -20,9 +22,16 @@ export default ({ open, handleClose }:IMenuProps) => {
         if(success && data){
             setNotifications(data)
         }
-        if(fee)
-
+        if(!success){
+            showMessage()
+        }
     }
+
+    useEffect(() => {
+        if(open){
+            fetchNotifications()
+        }
+    }, [open])
  
     return (
         <div 
