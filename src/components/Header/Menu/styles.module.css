@@ -87,4 +87,30 @@
     gap: 20px;
 
     font-size: 1.25rem;
+    text-align: center;
+
+    align-items: center;
+}
+
+.notif_list {
+    width: 100%;
+    height: fit-content;
+
+    background-color: rgb(206, 206, 206);
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.notif_box {
+    width: 100%;
+    background-color: #fff;
+
+    padding: 10px;
+    border-radius: 10px;
 }

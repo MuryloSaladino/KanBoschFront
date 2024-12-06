@@ -31,7 +31,7 @@ const Header = ({  }:IHeaderProps) => {
 
                 <nav>
                     <Avatar 
-                        username="Murylo Saladino"
+                        username="Isabelle Oliveira"
                         onClick={() => setMenuOpen(true)}
                     />
                 </nav>

@@ -1,6 +1,7 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 import styles from "./styles.module.css"
 import Icon from "@/components/Icon";
+import internalAPI from "@/service/internal.services";
 
 interface IMenuProps {
     open: boolean;
@@ -13,6 +14,16 @@ export default ({ open, handleClose }:IMenuProps) => {
         e.stopPropagation()
     }
 
+    const fetchNotifications = async () => {
+        const { success, data, showMessage } = await internalAPI.get("/notifications");
+
+        if(success && data){
+            setNotifications(data)
+        }
+        if(fee)
+
+    }
+ 
     return (
         <div 
             className={`${styles.backdrop} ${open ? styles.backdrop_showing : styles.backdrop_closing}`}
@@ -30,7 +41,14 @@ export default ({ open, handleClose }:IMenuProps) => {
                 >X</Icon>
 
                 <div className={styles.link_list}>
-                    
+                    <h1>Notifications</h1>
+                    <div className={styles.notif_list}>
+                        <div className={styles.notif_box}>
+                            oi
+                        </div>
+                    </div>
+                    <h1>Workspaces</h1>
+
                 </div>
             </div>
         </div>
