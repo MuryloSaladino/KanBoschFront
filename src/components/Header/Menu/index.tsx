@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useState } from "react";
 import styles from "./styles.module.css"
 import Icon from "@/components/Icon";
 import internalAPI from "@/service/internal.services";
+import { INotification } from "@/interfaces/notif.interfaces";
 
 interface IMenuProps {
     open: boolean;
@@ -10,7 +11,7 @@ interface IMenuProps {
 
 export default ({ open, handleClose }:IMenuProps) => {
 
-    const [notifications, setNotifications] = useState([])
+    const [notifications, setNotifications] = useState<INotification[]>([])
 
     const handleModalClick:MouseEventHandler = (e) => {
         e.stopPropagation()
