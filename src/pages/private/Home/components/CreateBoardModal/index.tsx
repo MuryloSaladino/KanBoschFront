@@ -5,11 +5,12 @@ import Text from "@/components/Text"
 import styles from "./styles.module.css"
 import { IFormInput } from "@/components/Form/types"
 import Form from "@/components/Form"
-import { IBoardCreation } from "@/interfaces/boards.interfaces"
+import { IBoard, IBoardCreation } from "@/interfaces/boards.interfaces"
+import internalServices from "@/service/internal.services"
 
 export default function CreateBoardModal() {
 
-    const { boardModal, workspaces } = useContext(HomeContext)
+    const { boardModal, workspaces, addBoard } = useContext(HomeContext)
 
     const workspaceOptions = workspaces.map(w => ({ value: w.id, label: w.name }))
 
@@ -18,8 +19,15 @@ export default function CreateBoardModal() {
         { type: "select", fieldName: "workspaceId", options: workspaceOptions, label: "select workspace" },
     ]
 
-    const submit = async (data: IBoardCreation) => {
-        console.log(data);
+    const submit = async ({ workspaceId, ...payload }: IBoardCreation) => {
+        const { data, success, showMessage } = await internalServices.post<IBoard>(`/boards/workspaces/${workspaceId}`, payload)
+        
+        if(data && success) {
+            addBoard(data, workspaceId)
+            boardModal.hide()
+            return
+        }
+        showMessage()
     }
 
     return(
