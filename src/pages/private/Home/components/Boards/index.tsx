@@ -17,10 +17,15 @@ export default function Boards({ boards }: IBoardCardProps) {
 
     return(
         <div className={styles.grid_container}>
-            {boards.map(board => (
-                <Link to={Routes.BOARD.replace(":boardId", board.id)} type="box" key={board.id} className={styles.grid_child}>
-                    <div className={styles.card} style={{ backgroundColor: board.color }}>
-                        <Text fontSize="xl2" className={styles.card_title}>{ board.name }</Text>
+            {boards.map(({ color, name, workspaceId, id: boardId }) => (
+                <Link
+                    type="box"
+                    key={boardId}
+                    className={styles.grid_child}
+                    to={Routes.BOARD.params({ boardId, workspaceId })}
+                >
+                    <div className={styles.card} style={{ backgroundColor: color }}>
+                        <Text fontSize="xl2" className={styles.card_title}>{ name }</Text>
                     </div>
                 </Link>
             ))}
