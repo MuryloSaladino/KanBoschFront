@@ -1,10 +1,12 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { ReactNode } from "react";
+import { Modal as MuiModal } from "@mui/material";
 import styles from "./styles.module.css"
+import Icon from "../Icon";
 
 interface IModalProps {
     open: boolean
     onClose: () => void
-    children?: ReactNode
+    children: ReactNode
     maxWidth?: "xs" | "sm" | "md" | "lg" | "xl"
 }
 
@@ -48,35 +50,27 @@ interface IModalProps {
  * Notes:
  * - Clicking outside the modal content or the close button triggers `handleClose`.
  */
-const Modal = ({ 
+export default function Modal({ 
     children,
     open,
     onClose,
     maxWidth = "md" 
-}:IModalProps) => {
+}:IModalProps) {
 
-    const handleModalClick:MouseEventHandler = (e) => {
-        e.stopPropagation()
-    }
-
-    return open && (
-        <div 
-            className={styles.modal_container}
-            onClick={onClose}
+    return (
+        <MuiModal
+            open={open}
+            onClose={onClose}
         >
-            <div 
-                className={`${styles.modal} ${styles[maxWidth]}`}
-                onClick={handleModalClick}
-            >
-                <button 
-                    className={styles.close_button}
-                    onClick={onClose}
-                >X</button>
-
+            <div className={`${styles.modal} ${styles[maxWidth]}`}>
                 { children }
+                
+                <Icon
+                    name="close" 
+                    onClick={onClose}
+                    className={styles.close_button}
+                />
             </div>
-        </div>
+        </MuiModal>
     )
 }
-
-export default Modal
