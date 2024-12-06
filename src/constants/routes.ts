@@ -5,5 +5,7 @@ export enum Routes {
     REGISTER = "/register",
     
     HOME = "/u/:userId",
-    BOARD = "/b/:boardId",
+    BOARD = "/w/:workspaceId/b/:boardId",
+
+    BOARD_CARD = "/w/:workspaceId/b/:boardId/c/:cardId"
 }
