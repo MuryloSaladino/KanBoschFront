@@ -3,7 +3,7 @@
 
     --1: no-repeat linear-gradient(var(--primary-main) 0 0);
     --2: no-repeat linear-gradient(var(--secondary-main) 0 0);
-    --3: no-repeat linear-gradient(var(--info-main) 0 0);
+    --3: no-repeat linear-gradient(var(--success-main) 0 0);
     --4: no-repeat linear-gradient(var(--error-main) 0 0);
 
     --tl: 0 0;
