@@ -1,7 +1,8 @@
 import styles from "./styles.module.css"
 import Header from "@/components/Header";
 import Menu from "./components/Menu";
-import CardList from "./components/CardList";
+import CardLists from "./components/CardLists";
+import BoardHeader from "./components/BoardHeader";
 
 export default function Board() {
     return(
@@ -10,7 +11,11 @@ export default function Board() {
 
             <div className={styles.container}>
                 <Menu/>
-                <CardList/>
+
+                <div className={styles.main_content}>
+                    <BoardHeader/>
+                    <CardLists/>
+                </div>
             </div>
         </>
     )
