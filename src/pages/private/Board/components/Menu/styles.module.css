@@ -1,0 +1,35 @@
+.menu {
+    width: 1rem;
+    height: 100%;
+
+    border-right: 1px solid var(--gray-200);
+
+    position: relative;
+
+    transition: 0.4s;
+}
+.open {
+    width: 18.75rem;
+}
+
+.close_button {
+    width: 2rem;
+    aspect-ratio: 1/1;
+
+    background-color: var(--gray-600);
+    border-radius: 50%;
+    cursor: pointer;
+
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    transform: translateX(1rem);
+    z-index: 1;
+
+    color: var(--gray-100);
+    font-size: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

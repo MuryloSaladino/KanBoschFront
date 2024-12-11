@@ -30,7 +30,12 @@ const router = createBrowserRouter([
             },
             {
                 path: Routes.BOARD,
-                element: <Board/>
+                element: <Board/>,
+                children: [
+                    {
+                        path: Routes.BOARD_CARD,
+                    }
+                ]
             }
         ]
     }

@@ -27,14 +27,16 @@ const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
                 helperText={helperText}
                 id={id}
             >
-                <Select 
+                <SSelect 
                     ref={ref}
                     id={id}
                     defaultValue={defaultValue}
                     fullWidth
+                    error={error}
                     onChange={(e) => {
                         if(fieldName) setValue(fieldName, e.target.value)
                     }}
+                    
                 >
                     {options.map(option => (
                         <MenuItem 
@@ -44,10 +46,21 @@ const InputSelect = forwardRef<JSX.Element, IInputSelectProps>(
                             {option.label}
                         </MenuItem>
                     ))}
-                </Select>
+                </SSelect>
             </InputContainer>
         )
     }
 )
+
+const SSelect = styled(Select)<{ error?: boolean }>(({ error }) => ({
+    width: "100%",
+    height: "100%",
+
+    "> div": {
+        height: "100%",
+        borderRadius: 0,
+        borderColor: error ? "var(--error-light)" : "var(--gray-200)",
+    }
+}))
 
 export default InputSelect

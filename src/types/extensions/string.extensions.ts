@@ -10,3 +10,15 @@ if (!String.prototype.abreviate) {
         return abbreviation.padEnd(2, "_")
     };
 }
+
+if (!String.prototype.params) {
+    String.prototype.params = function (this: string, params: { [key: string]: string | number }): string {
+        let result = this
+        Object.keys(params).forEach(key => {
+            const value = params[key]
+            const regex = new RegExp(":" + key, "g")
+            result = result.replace(regex, value.toString())
+        })
+        return result
+    };
+}
