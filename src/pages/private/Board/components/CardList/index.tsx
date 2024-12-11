@@ -1,13 +1,8 @@
-interface ICardListProps {
+export default function CardList() {
 
-}
-
-export default function CardList({}: ICardListProps) {
-
-    
     return (
         <div>
-
+            
         </div>
     )
 }
