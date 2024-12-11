@@ -10,13 +10,13 @@ import api from "@/service/internal.services"
 
 export default function CreateBoardModal() {
 
-    const { boardModal, workspaces, addBoard } = useContext(HomeContext)
+    const { boardModal, workspaces, addBoard, workspaceId } = useContext(HomeContext)
 
     const workspaceOptions = workspaces.map(w => ({ value: w.id, label: w.name }))
 
     const fields:IFormInput[] = [
         { fieldName: "name", label: "board name" },
-        { type: "select", fieldName: "workspaceId", options: workspaceOptions, label: "select workspace" },
+        { type: "select", fieldName: "workspaceId", options: workspaceOptions, label: "select workspace", defaultValue: workspaceId },
     ]
 
     const submit = async ({ workspaceId, ...payload }: IBoardCreation) => {

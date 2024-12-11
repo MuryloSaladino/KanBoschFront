@@ -17,7 +17,10 @@ export default function WorkspaceCard({ workspace }:IWorkspaceCardProps) {
                 <WorkspaceActions/>
             </div>
 
-            <Boards boards={workspace.boards || []}/>
+            <Boards 
+                boards={workspace.boards || []}
+                workspaceId={workspace.id}
+            />
         </div>
     )
 }

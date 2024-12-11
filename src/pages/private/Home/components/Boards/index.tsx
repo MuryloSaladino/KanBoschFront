@@ -9,11 +9,17 @@ import Icon from "@/components/Icon"
 
 interface IBoardCardProps {
     boards: IBoard[]
+    workspaceId: string
 }
 
-export default function Boards({ boards }: IBoardCardProps) {
+export default function Boards({ boards, workspaceId }: IBoardCardProps) {
 
-    const { boardModal } = useContext(HomeContext) 
+    const { boardModal, setWorkspaceId } = useContext(HomeContext) 
+
+    const openModal = () => {
+        setWorkspaceId(workspaceId)
+        boardModal.show()
+    }
 
     return(
         <div className={styles.grid_container}>
@@ -30,7 +36,7 @@ export default function Boards({ boards }: IBoardCardProps) {
                 </Link>
             ))}
             <div
-                onClick={boardModal.show}
+                onClick={openModal}
                 className={`${styles.grid_child} ${styles.creation_btn}`}>
                 <Icon name="add" size="lg"/>
             </div>
