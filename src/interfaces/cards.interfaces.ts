@@ -16,5 +16,5 @@ export interface ICardList {
     boardId: string
     name: string
     color: string
-    cards?: ICard[]
+    cards: ICard[]
 }
