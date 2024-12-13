@@ -1,3 +1,13 @@
+export interface ICardList {
+    id: string
+    createdAt: string
+    updatedAt: string
+    boardId: string
+    name: string
+    color: string
+    cards: ICard[]
+}
+
 export interface ICard {
     id: string
     createdAt: string
@@ -9,12 +19,19 @@ export interface ICard {
     finishDate: string
 }
 
-export interface ICardList {
-    id: string
+export interface ICardWithDetails extends ICard {
+    participations: IParticipation[]
+}
+
+export interface IParticipation {
     createdAt: string
     updatedAt: string
-    boardId: string
-    name: string
-    color: string
-    cards: ICard[]
+    userId: string
+    cardId: string
+    user: {
+        id: string
+        createdAt: string
+        updatedAt: string
+        email: string
+    }
 }
