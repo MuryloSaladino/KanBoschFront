@@ -48,7 +48,7 @@ export default function Card({ card, setDragging: setContextDragging, moveCard, 
         >
             <div>
                 <div 
-                    className={`${styles.card} ${dragging ? styles.dragging : ""}`}
+                    className={`${styles.card} ${position.x > 20 || position.x < -20 ? styles.dragging : ""}`}
                     onClick={() => !mouseMoved && navigate(`c/${card.id}`)}
                 >
                     <Text>{card.description}</Text>

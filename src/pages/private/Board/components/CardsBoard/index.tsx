@@ -19,6 +19,9 @@ export default function CardsBoard() {
         if(currentListIndex == undefined) {
             return false
         }
+        if(currentListIndex == previousListIndex) {
+            return false
+        }
         api.patch(`/cards/${id}/card-lists/${cardsData[currentListIndex].id}`)
 
         const updatedData = cardsData
