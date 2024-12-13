@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import api from "@/service/internal.services"
 import { ICard, ICardList } from "@/interfaces/cards.interfaces"
 import CardList from "../CardList"
+import CreateList from "./CreateList"
 
 export default function CardsBoard() {
 
@@ -26,6 +27,13 @@ export default function CardsBoard() {
         updatedData[currentListIndex].cards.push(cardToMove)
         return true
     } 
+
+    const addList = async (name: string) => {
+        const { data } = await api.post<ICardList>(`/card-lists/boards/${boardId}`, { name, index: cardsData.length })
+        if(data) {
+            setCardsData(prev => [...prev, { ...data, cards: [] }])
+        }
+    }
 
     useEffect(() => {
         (async () => {
@@ -67,9 +75,7 @@ export default function CardsBoard() {
                     />
                 ))}
                 
-                <div className={styles.create_list}>
-                    
-                </div>
+                <CreateList addList={addList}/>
             </ol>
         </div>
     )
