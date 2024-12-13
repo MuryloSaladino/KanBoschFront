@@ -1,3 +1,3 @@
 export enum Connections {
-    InternalAPI =  "https://kanboschserver.onrender.com"
+    InternalAPI =  "https://kanboschserver.onrender.com/api"
 }
