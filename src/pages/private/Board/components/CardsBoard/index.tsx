@@ -11,6 +11,22 @@ export default function CardsBoard() {
     const [loading, setLoading] = useState(false)
     const [cardsData, setCardsData] = useState<ICardList[]>([])
 
+    const [dragging, setDragging] = useState(false)
+    const [currentListIndex, setCurrentListIndex] = useState<number>()
+
+    const moveCard = (id: string, previousListIndex: number) => {
+        if(currentListIndex == undefined) {
+            return false
+        }
+        api.patch(`/cards/${id}/card-lists/${cardsData[currentListIndex].id}`)
+
+        const updatedData = cardsData
+        const cardIndex = updatedData[previousListIndex].cards.findIndex(c => c.id == id)
+        const [cardToMove] = updatedData[previousListIndex].cards.splice(cardIndex, 1)
+        updatedData[currentListIndex].cards.push(cardToMove)
+        return true
+    } 
+
     useEffect(() => {
         (async () => {
             setLoading(true)
@@ -30,12 +46,24 @@ export default function CardsBoard() {
     }, [boardId])
     
     return (
-        <div className={`${styles.container} ${loading ? "loading" : ""}`}>
+        <div 
+            className={`${styles.container} ${loading ? "loading" : ""}`}
+            onMouseMove={(e) => {
+                const { left } = (e.currentTarget as HTMLElement).getBoundingClientRect()
+                const x = (e.clientX - left)
+                setCurrentListIndex((x % 288 < 33) ? undefined : Math.floor(x / (288)))
+            }}
+        >
             <ol>
-                {cardsData.map(list => (
+                {cardsData.map((list, i) => (
                     <CardList
                         key={list.id}
                         cardList={list}
+                        index={i}
+                        currentListIndex={currentListIndex}
+                        dragging={dragging} 
+                        setDragging={(b: boolean) => setDragging(b)}
+                        moveCard={moveCard}
                     />
                 ))}
                 

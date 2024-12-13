@@ -15,7 +15,7 @@
 
 
 .create_list {
-    width: 16rem;
+    min-width: 16rem;
 
     padding: 1rem;
     border-radius: 0.3125rem;
