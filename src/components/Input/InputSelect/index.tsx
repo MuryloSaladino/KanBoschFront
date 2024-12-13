@@ -11,7 +11,7 @@ type Option = {
 }
 
 export interface IInputSelectProps extends IRootInputProps {
-    type: "select"
+    type?: "select"
     options?: Option[]
     defaultValue?: string | number
 }

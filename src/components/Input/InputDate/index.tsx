@@ -6,7 +6,6 @@ import { forwardRef } from "react";
 import { useFormContext } from "react-hook-form";
 
 export interface IInputDateProps extends IRootInputProps {
-    type: "date"
 }
 
 const InputDate = forwardRef<HTMLInputElement, IInputDateProps>(

@@ -5,13 +5,12 @@ import InputContainer from "../InputContainer"
 import Icon from "../../Icon"
 
 export interface IInputPasswordProps extends IRootInputProps {
-    type: "password"
 }
 
 const InputPassword = forwardRef<HTMLInputElement, IInputPasswordProps>(
-    ({ error, type: initialType, label, helperText, id, fieldName, ...props }, ref) => 
+    ({ error, label, helperText, id, fieldName, ...props }, ref) => 
 {
-    const [type, setType] = useState<"text" | "password">(initialType)
+    const [type, setType] = useState<"text" | "password">("password")
 
     return (
         <InputContainer
