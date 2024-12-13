@@ -41,3 +41,20 @@
     transform: rotate(10deg);
     cursor: grabbing;
 }
+
+.create_card {
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.3125rem;
+
+    cursor: pointer;
+    transition: 0.15s;
+
+    & span {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+}
+.create_card:hover {
+    background-color: var(--gray-200);
+}

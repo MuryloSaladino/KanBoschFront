@@ -32,6 +32,6 @@
         gap: 0.4rem;
     }
 }
-.create_list:hover {
+.create_list:hover, .creating {
     opacity: 1;
 }

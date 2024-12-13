@@ -2,6 +2,7 @@ import Text from "@/components/Text"
 import styles from "./styles.module.css"
 import { ICardList } from "@/interfaces/cards.interfaces"
 import Card from "./Card"
+import CreateCard from "./CreateCard"
 
 interface ICardListProps {
     cardList: ICardList
@@ -10,6 +11,7 @@ interface ICardListProps {
     currentListIndex?: number
     index: number
     moveCard: (id: string, previousListIndex: number) => boolean
+    addCard: (description: string, listIndex: number) => void
 }
 
 export default function CardList({
@@ -18,7 +20,8 @@ export default function CardList({
     setDragging,
     index,
     currentListIndex,
-    moveCard
+    moveCard,
+    addCard,
 }: ICardListProps) {
 
     return (
@@ -38,6 +41,8 @@ export default function CardList({
             {dragging && currentListIndex == index &&
                 <div className={styles.shadow_card}></div>
             }
+
+            <CreateCard addCard={addCard} index={index}/>
         </li>
     )
 }

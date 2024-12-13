@@ -4,14 +4,15 @@ import Text from "@/components/Text";
 import Input from "@/components/Input";
 import { useEffect, useRef, useState } from "react";
 
-interface ICreateListProps {
-    addList: (name: string) => void
+interface ICreateCardProps {
+    addCard: (description: string, listIndex: number) => void
+    index: number
 }
 
-export default function CreateList({ addList }: ICreateListProps) {
+export default function CreateCard({ addCard, index }: ICreateCardProps) {
 
     const [creating, setCreating] = useState(false)
-    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
 
     const createListRef = useRef<HTMLDivElement>(null)
 
@@ -28,7 +29,7 @@ export default function CreateList({ addList }: ICreateListProps) {
     
     return (
         <div
-            className={`${styles.create_list} ${creating ? styles.creating : ""}`}
+            className={styles.create_card}
             onClick={() => setCreating(true) }
             ref={createListRef}
         >
@@ -37,17 +38,17 @@ export default function CreateList({ addList }: ICreateListProps) {
                 
                 <Input
                     className={styles.input}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     onKeyDown={(e) => {
                         if(e.key === "Enter") {
-                            addList(name)
-                            setName("")
+                            addCard(description, index)
+                            setDescription("")
                         }
                     }}
                 /> :
 
-                <Text>Add new list<Icon name="add"/></Text>
+                <Text>Add new card<Icon name="add"/></Text>
             }
             
         </div>

@@ -35,6 +35,23 @@ export default function CardsBoard() {
         }
     }
 
+    const addCard = async (description: string, listIndex: number) => {
+        const { data } = await api.post<ICard>(`/cards/card-lists/${cardsData[listIndex].id}`, 
+            { 
+                description,
+                index: cardsData[listIndex].cards.length,
+                detailedDescription: "",
+                startDate: null,
+                finishDate: null,
+            }
+        )
+        if(data) {
+            const updatedData = cardsData
+            updatedData[listIndex].cards.push(data)
+            setCardsData(updatedData)
+        }
+    }
+
     useEffect(() => {
         (async () => {
             setLoading(true)
@@ -72,6 +89,7 @@ export default function CardsBoard() {
                         dragging={dragging} 
                         setDragging={(b: boolean) => setDragging(b)}
                         moveCard={moveCard}
+                        addCard={addCard}
                     />
                 ))}
                 
