@@ -22,6 +22,6 @@ declare global {
          * // => "/path/42"
          * ```
          */
-        params(params: { [string]: string | number }): string;
+        params(params: { [key: string]: string | number }): string;
     }
 }
