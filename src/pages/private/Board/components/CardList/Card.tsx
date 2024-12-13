@@ -14,13 +14,11 @@ interface ICardProps {
 
 export default function Card({ card, setDragging: setContextDragging, moveCard, index }: ICardProps) {
 
-    const [dragging, setDragging] = useState(false)
     const [mouseMoved, setMouseMoved] = useState(false)
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const navigate = useNavigate()
 
     const startDrag: DraggableEventHandler = () => {
-        setDragging(true)
         setContextDragging(true)
         setMouseMoved(false)
     }
@@ -31,7 +29,6 @@ export default function Card({ card, setDragging: setContextDragging, moveCard, 
     }
 
     const endDrag: DraggableEventHandler = () => {
-        setDragging(false)
         setContextDragging(false)
         
         if(!moveCard(card.id, index)) {
